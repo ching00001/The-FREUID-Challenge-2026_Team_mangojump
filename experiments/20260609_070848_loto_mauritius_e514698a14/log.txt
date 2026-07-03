@@ -1,0 +1,45 @@
+[     0.0s] === run 20260609_070848_loto_mauritius_e514698a14 ===
+[     0.0s] config: {"name": "loto_mauritius", "seed": 42, "notes": "B1 type-LOO holdout MAURITIUS/ID cnv2t", "folds_csv": "artifacts/folds.csv", "img_h": 320, "img_w": 512, "cv_scheme": "loto", "val_fold": 0, "loto_type": "MAURITIUS/ID", "subset": 0, "backbone": "convnextv2_tiny.fcmae_ft_in22k_in1k", "pretrained": true, "drop_rate": 0.0, "drop_path_rate": 0.1, "in_chans": 3, "epochs": 5, "batch_size": 32, "grad_accum": 1, "optimizer": "adamw", "lr": 0.0002, "backbone_lr_mult": 1.0, "weight_decay": 0.05, "scheduler": "cosine", "warmup_epochs": 0.5, "min_lr_ratio": 0.02, "amp_dtype": "bf16", "grad_checkpointing": false, "max_grad_norm": 1.0, "ema": true, "ema_decay": 0.9995, "loss": "bce", "focal_gamma": 2.0, "pos_weight": 1.0, "label_smoothing": 0.0, "aug_level": "light", "hflip_p": 0.0, "brightness": 0.1, "contrast": 0.1, "rotate_deg": 3.0, "scale_jitter": 0.05, "jpeg_p": 0.2, "jpeg_quality_min": 50, "tta": "none", "use_ema_for_infer": true, "num_workers": 2, "eval_every": 1, "save_top_k": 1}
+[     0.0s] env: {"python": "3.12.3", "platform": "Windows-11-10.0.26200-SP0", "torch": "2.11.0.dev20251223+cu128", "cuda": "12.8", "gpu": "NVIDIA GeForce RTX 5060 Ti", "vram_gb": 17.1, "timm": "1.0.22"}
+[     3.6s] train=55990  val=13362  val_fraud_rate=0.4011
+[    71.8s]   e0 step 50/8745 loss=0.6862 lr=1.12e-05
+[   105.0s]   e0 step 100/8745 loss=0.6499 lr=2.27e-05
+[   138.2s]   e0 step 150/8745 loss=0.5911 lr=3.41e-05
+[   171.5s]   e0 step 200/8745 loss=0.5520 lr=4.55e-05
+[   204.5s]   e0 step 250/8745 loss=0.5193 lr=5.70e-05
+[   238.2s]   e0 step 300/8745 loss=0.4899 lr=6.84e-05
+[   271.4s]   e0 step 350/8745 loss=0.4693 lr=7.99e-05
+[   304.9s]   e0 step 400/8745 loss=0.4592 lr=9.13e-05
+[   337.5s]   e0 step 450/8745 loss=0.4507 lr=1.03e-04
+[   370.2s]   e0 step 500/8745 loss=0.4452 lr=1.14e-04
+[   403.3s]   e0 step 550/8745 loss=0.4363 lr=1.26e-04
+[   436.4s]   e0 step 600/8745 loss=0.4348 lr=1.37e-04
+[   469.3s]   e0 step 650/8745 loss=0.4337 lr=1.49e-04
+[   502.1s]   e0 step 700/8745 loss=0.4295 lr=1.60e-04
+[   534.8s]   e0 step 750/8745 loss=0.4259 lr=1.71e-04
+[   571.9s]   e0 step 800/8745 loss=0.4221 lr=1.83e-04
+[   612.8s]   e0 step 850/8745 loss=0.4185 lr=1.94e-04
+[   647.2s]   e0 step 900/8745 loss=0.4166 lr=2.00e-04
+[   680.8s]   e0 step 950/8745 loss=0.4079 lr=2.00e-04
+[   715.8s]   e0 step 1000/8745 loss=0.3975 lr=2.00e-04
+[   750.3s]   e0 step 1050/8745 loss=0.3849 lr=2.00e-04
+[   784.5s]   e0 step 1100/8745 loss=0.3754 lr=2.00e-04
+[   819.3s]   e0 step 1150/8745 loss=0.3647 lr=1.99e-04
+[   856.8s]   e0 step 1200/8745 loss=0.3532 lr=1.99e-04
+[   894.6s]   e0 step 1250/8745 loss=0.3422 lr=1.99e-04
+[   928.4s]   e0 step 1300/8745 loss=0.3313 lr=1.99e-04
+[   961.9s]   e0 step 1350/8745 loss=0.3215 lr=1.98e-04
+[   995.6s]   e0 step 1400/8745 loss=0.3126 lr=1.98e-04
+[  1029.0s]   e0 step 1450/8745 loss=0.3046 lr=1.97e-04
+[  1063.0s]   e0 step 1500/8745 loss=0.2963 lr=1.97e-04
+[  1096.4s]   e0 step 1550/8745 loss=0.2882 lr=1.96e-04
+[  1129.0s]   e0 step 1600/8745 loss=0.2800 lr=1.96e-04
+[  1161.0s]   e0 step 1650/8745 loss=0.2720 lr=1.95e-04
+[  1195.6s]   e0 step 1700/8745 loss=0.2651 lr=1.95e-04
+[  1477.2s] metrics {"step": 0, "elapsed_s": 1477.2, "epoch": 0, "train_loss": 0.25906, "freuid": 0.0001, "audet": 0.0, "apcer@1bpcer": 0.00019, "roc_auc": 1.0}
+[  1477.4s]   * new best FREUID=0.00010 @epoch 0
+[  1491.7s]   e1 step 1750/8745 loss=0.0020 lr=1.94e-04
+[  1524.1s]   e1 step 1800/8745 loss=0.0330 lr=1.93e-04
+[  1556.4s]   e1 step 1850/8745 loss=0.0470 lr=1.93e-04
+[  1590.2s]   e1 step 1900/8745 loss=0.0357 lr=1.92e-04
+[  1622.6s]   e1 step 1950/8745 loss=0.0370 lr=1.91e-04

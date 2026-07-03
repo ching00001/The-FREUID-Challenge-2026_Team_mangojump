@@ -1,0 +1,23 @@
+# competition data (never redistribute)
+train/
+train_sample/
+public_test/
+test/
+*.csv
+!sample_submission_schema.csv
+
+# external datasets (fetched by scripts; cite, don't redistribute)
+external/
+
+# heavy artifacts (features, checkpoints; packaged into the Docker image instead)
+artifacts/*.npz
+artifacts/fusion_cache/
+experiments/*/adapters.pt
+experiments/*/model.pt
+experiments/*/*.tmp
+
+# env / caches
+__pycache__/
+*.pyc
+env/
+.claude/

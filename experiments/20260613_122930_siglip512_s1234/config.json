@@ -1,0 +1,19 @@
+{
+  "name": "siglip512_s1234",
+  "backbone": "vit_so400m_patch16_siglip_512.v2_webli",
+  "rank": 16,
+  "alpha": 32,
+  "attn_only": false,
+  "epochs": 3,
+  "batch": 8,
+  "accum": 2,
+  "lr": 0.0002,
+  "weight_decay": 0.01,
+  "warmup_steps": 1000,
+  "ema_decay": 0.9995,
+  "seed": 1234,
+  "subset": 0,
+  "skip_infer": false,
+  "num_workers": 2,
+  "out": "subs/siglip512_s1234.csv"
+}

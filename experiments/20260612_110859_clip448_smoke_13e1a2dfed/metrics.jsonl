@@ -1,0 +1,1 @@
+{"step": 0, "elapsed_s": 61.2, "epoch": 0, "train_loss": 0.73488, "freuid": 1.0, "audet": 0.6544, "apcer@1bpcer": 1.0, "roc_auc": 0.3456, "ho_auc": 0.4107, "ho_gap": -0.019}

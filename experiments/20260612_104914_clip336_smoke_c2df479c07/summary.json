@@ -1,0 +1,10 @@
+{
+  "run_id": "20260612_104914_clip336_smoke_c2df479c07",
+  "best_epoch": 0,
+  "sel": 0.92478,
+  "freuid": 0.92478,
+  "audet": 0.3712,
+  "apcer_at_1pct_bpcer": 0.96,
+  "roc_auc": 0.6288,
+  "elapsed_min": 1.4
+}

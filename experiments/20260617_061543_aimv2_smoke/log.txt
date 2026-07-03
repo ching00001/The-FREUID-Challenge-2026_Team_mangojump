@@ -1,0 +1,6 @@
+[     0.0s] === 20260617_061543_aimv2_smoke ===
+[     0.0s] config: {"name": "aimv2_smoke", "backbone": "aimv2_large_patch14_448.apple_pt", "img_size": 0, "rank": 16, "alpha": 32, "attn_only": false, "epochs": 1, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 42, "subset": 200, "skip_infer": true, "recapture_p": 0.0, "rc_min": 0.2, "rc_max": 0.6, "loto_types": "", "num_workers": 2, "out": "subs/siglip512_dora.csv"}
+[   155.1s] backbone=aimv2_large_patch14_448.apple_pt img=448 mean=(0.48145466, 0.4578275, 0.40821073) | DoRA layers=120 | trainable=7.04M
+[   158.4s] train=200 | canary val=367 (digital 347 + recaptured 20)
+[   215.3s] metrics {"epoch": 0, "train_loss": 0.60839, "canary_freuid": 0.94837, "audet": 0.49585, "roc_auc": 0.50415, "ho_auc": 0.7619, "ho_gap": 0.0045}
+[   217.9s] skip_infer set — done (training only)

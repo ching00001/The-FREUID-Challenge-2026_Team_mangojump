@@ -1,0 +1,26 @@
+[     0.1s] === run 20260609_205220_phead_f0_2df3ccdb3a ===
+[     0.1s] config: {"name": "phead_f0", "seed": 42, "notes": "P0b patch-head small 4x3 f0 clean-val", "folds_csv": "artifacts/folds.csv", "img_h": 384, "img_w": 608, "cv_scheme": "skf", "val_fold": 0, "loto_type": "", "subset": 0, "arch": "patch_head", "backbone": "convnextv2_tiny.fcmae_ft_in22k_in1k", "pretrained": true, "drop_rate": 0.1, "drop_path_rate": 0.1, "in_chans": 3, "patch_backbone": "vit_small_patch14_reg4_dinov2", "patch_px": 224, "patch_grid_cols": 4, "patch_grid_rows": 3, "patch_freeze": true, "patch_jitter": 0.15, "epochs": 40, "batch_size": 256, "grad_accum": 2, "optimizer": "adamw", "lr": 0.001, "backbone_lr_mult": 1.0, "weight_decay": 0.01, "scheduler": "cosine", "warmup_epochs": 0.5, "min_lr_ratio": 0.02, "amp_dtype": "bf16", "grad_checkpointing": true, "max_grad_norm": 1.0, "ema": true, "ema_decay": 0.9995, "loss": "bce", "focal_gamma": 2.0, "pos_weight": 1.0, "label_smoothing": 0.0, "aug_level": "light", "hflip_p": 0.0, "brightness": 0.1, "contrast": 0.1, "rotate_deg": 3.0, "scale_jitter": 0.05, "jpeg_p": 0.2, "jpeg_quality_min": 50, "recapture_p": 0.0, "recapture_strength_min": 0.3, "recapture_strength_max": 1.0, "val_recapture": 0.0, "tta": "none", "use_ema_for_infer": true, "num_workers": 8, "eval_every": 1, "save_top_k": 1}
+[     0.1s] env: {"python": "3.12.3", "platform": "Windows-11-10.0.26200-SP0", "torch": "2.11.0.dev20251223+cu128", "cuda": "12.8", "gpu": "NVIDIA GeForce RTX 5060 Ti", "vram_gb": 17.1, "timm": "1.0.22"}
+[     5.9s] emb tag=small_4x3 D=384  train=55481 val=13871 val_fraud=0.423/0.423
+[     7.1s] metrics {"step": 0, "elapsed_s": 7.1, "epoch": 0, "train_loss": 0.40853, "freuid": 0.10812, "audet": 0.03375, "apcer@1bpcer": 0.17186, "roc_auc": 0.96625}
+[     7.7s] metrics {"step": 1, "elapsed_s": 7.7, "epoch": 1, "train_loss": 0.20071, "freuid": 0.03312, "audet": 0.00661, "apcer@1bpcer": 0.05825, "roc_auc": 0.99339}
+[     8.3s] metrics {"step": 2, "elapsed_s": 8.3, "epoch": 2, "train_loss": 0.14636, "freuid": 0.01678, "audet": 0.00232, "apcer@1bpcer": 0.03083, "roc_auc": 0.99768}
+[     8.8s] metrics {"step": 3, "elapsed_s": 8.8, "epoch": 3, "train_loss": 0.11211, "freuid": 0.00934, "audet": 0.00152, "apcer@1bpcer": 0.01703, "roc_auc": 0.99848}
+[     9.5s] metrics {"step": 4, "elapsed_s": 9.5, "epoch": 4, "train_loss": 0.10006, "freuid": 0.00448, "audet": 0.00077, "apcer@1bpcer": 0.00818, "roc_auc": 0.99923}
+[    10.1s] metrics {"step": 5, "elapsed_s": 10.1, "epoch": 5, "train_loss": 0.09047, "freuid": 0.00759, "audet": 0.00114, "apcer@1bpcer": 0.01397, "roc_auc": 0.99886}
+[    10.8s] metrics {"step": 6, "elapsed_s": 10.8, "epoch": 6, "train_loss": 0.08049, "freuid": 0.00418, "audet": 0.00084, "apcer@1bpcer": 0.00749, "roc_auc": 0.99916}
+[    11.4s] metrics {"step": 7, "elapsed_s": 11.4, "epoch": 7, "train_loss": 0.0752, "freuid": 0.00311, "audet": 0.00076, "apcer@1bpcer": 0.00545, "roc_auc": 0.99924}
+[    12.0s] metrics {"step": 8, "elapsed_s": 12.0, "epoch": 8, "train_loss": 0.07294, "freuid": 0.00195, "audet": 0.00048, "apcer@1bpcer": 0.00341, "roc_auc": 0.99952}
+[    13.2s] metrics {"step": 10, "elapsed_s": 13.2, "epoch": 10, "train_loss": 0.06462, "freuid": 0.00168, "audet": 0.00029, "apcer@1bpcer": 0.00307, "roc_auc": 0.99971}
+[    15.5s] metrics {"step": 14, "elapsed_s": 15.5, "epoch": 14, "train_loss": 0.05721, "freuid": 0.00103, "audet": 0.00018, "apcer@1bpcer": 0.00187, "roc_auc": 0.99982}
+[    16.1s] metrics {"step": 15, "elapsed_s": 16.1, "epoch": 15, "train_loss": 0.05481, "freuid": 0.00125, "audet": 0.00028, "apcer@1bpcer": 0.00221, "roc_auc": 0.99972}
+[    16.7s] metrics {"step": 16, "elapsed_s": 16.7, "epoch": 16, "train_loss": 0.05367, "freuid": 0.00085, "audet": 0.00018, "apcer@1bpcer": 0.00153, "roc_auc": 0.99982}
+[    19.1s] metrics {"step": 20, "elapsed_s": 19.1, "epoch": 20, "train_loss": 0.04906, "freuid": 0.00124, "audet": 0.00026, "apcer@1bpcer": 0.00221, "roc_auc": 0.99974}
+[    20.3s] metrics {"step": 22, "elapsed_s": 20.3, "epoch": 22, "train_loss": 0.04769, "freuid": 0.00075, "audet": 0.00014, "apcer@1bpcer": 0.00136, "roc_auc": 0.99986}
+[    20.8s] metrics {"step": 23, "elapsed_s": 20.8, "epoch": 23, "train_loss": 0.04416, "freuid": 0.00048, "audet": 0.0001, "apcer@1bpcer": 0.00085, "roc_auc": 0.9999}
+[    22.0s] metrics {"step": 25, "elapsed_s": 22.0, "epoch": 25, "train_loss": 0.04569, "freuid": 0.00123, "audet": 0.00025, "apcer@1bpcer": 0.00221, "roc_auc": 0.99975}
+[    24.8s] metrics {"step": 30, "elapsed_s": 24.8, "epoch": 30, "train_loss": 0.04016, "freuid": 0.00128, "audet": 0.00018, "apcer@1bpcer": 0.00238, "roc_auc": 0.99982}
+[    27.7s] metrics {"step": 35, "elapsed_s": 27.7, "epoch": 35, "train_loss": 0.04139, "freuid": 0.00085, "audet": 0.00016, "apcer@1bpcer": 0.00153, "roc_auc": 0.99984}
+[    28.3s] metrics {"step": 36, "elapsed_s": 28.3, "epoch": 36, "train_loss": 0.03879, "freuid": 0.00039, "audet": 0.0001, "apcer@1bpcer": 0.00068, "roc_auc": 0.9999}
+[    30.1s] metrics {"step": 39, "elapsed_s": 30.1, "epoch": 39, "train_loss": 0.03854, "freuid": 0.00066, "audet": 0.00013, "apcer@1bpcer": 0.00119, "roc_auc": 0.99987}
+[    30.1s] FINAL {"run_id": "20260609_205220_phead_f0_2df3ccdb3a", "best_epoch": 36, "freuid": 0.00039, "audet": 0.0001, "apcer_at_1pct_bpcer": 0.00068, "roc_auc": 0.9999, "elapsed_min": 0.5}

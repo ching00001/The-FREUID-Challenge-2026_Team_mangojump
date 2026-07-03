@@ -1,0 +1,4 @@
+[     0.0s] === 20260613_140420_siglip896_smoke ===
+[     0.0s] config: {"name": "siglip896_smoke", "backbone": "vit_so400m_patch14_siglip_gap_896.pali_ocrvqa", "rank": 16, "alpha": 32, "attn_only": false, "epochs": 1, "batch": 4, "accum": 4, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 42, "subset": 800, "skip_infer": true, "num_workers": 2, "out": "subs/siglip512_dora.csv"}
+[   180.2s] backbone=vit_so400m_patch14_siglip_gap_896.pali_ocrvqa img=896 mean=(0.5, 0.5, 0.5) | DoRA layers=108 | trainable=7.98M
+[   183.1s] train=800 | canary val=367 (digital 347 + recaptured 20)

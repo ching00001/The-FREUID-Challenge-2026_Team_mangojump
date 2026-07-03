@@ -1,0 +1,5 @@
+{"step": 0, "elapsed_s": 2709.5, "epoch": 0, "train_loss": 0.14422, "freuid": 0.00206, "audet": 0.0007, "apcer@1bpcer": 0.00341, "roc_auc": 0.9993, "ho_auc": 0.8274, "ho_gap": 0.1653}
+{"step": 1, "elapsed_s": 5388.7, "epoch": 1, "train_loss": 0.02289, "freuid": 0.0, "audet": 0.0, "apcer@1bpcer": 0.0, "roc_auc": 1.0, "ho_auc": 0.8512, "ho_gap": 0.6501}
+{"step": 2, "elapsed_s": 8025.5, "epoch": 2, "train_loss": 0.01007, "freuid": 9e-05, "audet": 0.0, "apcer@1bpcer": 0.00017, "roc_auc": 1.0, "ho_auc": 0.875, "ho_gap": 0.6824}
+{"step": 3, "elapsed_s": 10646.0, "epoch": 3, "train_loss": 0.00369, "freuid": 0.0, "audet": 0.0, "apcer@1bpcer": 0.0, "roc_auc": 1.0, "ho_auc": 0.8512, "ho_gap": 0.7734}
+{"step": 4, "elapsed_s": 13329.7, "epoch": 4, "train_loss": 0.00134, "freuid": 9e-05, "audet": 0.0, "apcer@1bpcer": 0.00017, "roc_auc": 1.0, "ho_auc": 0.8452, "ho_gap": 0.6531}

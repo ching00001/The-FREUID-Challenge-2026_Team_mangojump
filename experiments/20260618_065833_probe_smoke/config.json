@@ -1,0 +1,14 @@
+{
+  "tag": "vit_large_dinov3",
+  "img": 512,
+  "name": "probe_smoke",
+  "hidden": 0,
+  "epochs": 20,
+  "batch": 512,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "dropout": 0.1,
+  "seed": 42,
+  "loto_types": "",
+  "out": "subs/_probe_smoke.csv"
+}

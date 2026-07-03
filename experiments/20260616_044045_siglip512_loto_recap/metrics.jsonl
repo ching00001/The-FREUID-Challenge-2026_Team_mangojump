@@ -1,0 +1,3 @@
+{"epoch": 0, "train_loss": 0.15256, "canary_freuid": 0.00385, "audet": 0.00187, "roc_auc": 0.99813, "ho_auc": 0.881, "ho_gap": 0.3084}
+{"epoch": 1, "train_loss": 0.03996, "canary_freuid": 0.00187, "audet": 0.00041, "roc_auc": 0.99959, "ho_auc": 0.9405, "ho_gap": 0.7725}
+{"epoch": 2, "train_loss": 0.01736, "canary_freuid": 0.00113, "audet": 0.00058, "roc_auc": 0.99942, "ho_auc": 0.9167, "ho_gap": 0.7748}

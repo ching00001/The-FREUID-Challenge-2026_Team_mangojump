@@ -1,0 +1,30 @@
+[     0.1s] === run 20260609_124639_patchdino_f0_2815fbcd6c ===
+[     0.1s] config: {"name": "patchdino_f0", "seed": 42, "notes": "P0 patch-DINOv2 small frozen 4x3 grid f0 clean-val", "folds_csv": "artifacts/folds.csv", "img_h": 384, "img_w": 608, "cv_scheme": "skf", "val_fold": 0, "loto_type": "", "subset": 0, "arch": "patch", "backbone": "convnextv2_tiny.fcmae_ft_in22k_in1k", "pretrained": true, "drop_rate": 0.0, "drop_path_rate": 0.1, "in_chans": 3, "patch_backbone": "vit_small_patch14_reg4_dinov2", "patch_px": 224, "patch_grid_cols": 4, "patch_grid_rows": 3, "patch_freeze": true, "patch_jitter": 0.15, "epochs": 6, "batch_size": 32, "grad_accum": 1, "optimizer": "adamw", "lr": 0.0003, "backbone_lr_mult": 1.0, "weight_decay": 0.05, "scheduler": "cosine", "warmup_epochs": 0.5, "min_lr_ratio": 0.02, "amp_dtype": "bf16", "grad_checkpointing": true, "max_grad_norm": 1.0, "ema": true, "ema_decay": 0.9995, "loss": "bce", "focal_gamma": 2.0, "pos_weight": 1.0, "label_smoothing": 0.0, "aug_level": "light", "hflip_p": 0.0, "brightness": 0.1, "contrast": 0.1, "rotate_deg": 3.0, "scale_jitter": 0.05, "jpeg_p": 0.2, "jpeg_quality_min": 50, "recapture_p": 0.0, "recapture_strength_min": 0.3, "recapture_strength_max": 1.0, "val_recapture": 0.0, "tta": "none", "use_ema_for_infer": true, "num_workers": 2, "eval_every": 1, "save_top_k": 1}
+[     0.1s] env: {"python": "3.12.3", "platform": "Windows-11-10.0.26200-SP0", "torch": "2.11.0.dev20251223+cu128", "cuda": "12.8", "gpu": "NVIDIA GeForce RTX 5060 Ti", "vram_gb": 17.1, "timm": "1.0.22"}
+[     4.8s] train=55481  val=13871  val_fraud_rate=0.4233
+[   203.7s]   e0 step 50/10398 loss=0.7137 lr=1.70e-05
+[   374.9s]   e0 step 100/10398 loss=0.7089 lr=3.43e-05
+[   537.9s]   e0 step 150/10398 loss=0.7019 lr=5.16e-05
+[   702.5s]   e0 step 200/10398 loss=0.6953 lr=6.89e-05
+[   874.9s]   e0 step 250/10398 loss=0.6931 lr=8.63e-05
+[  1044.5s]   e0 step 300/10398 loss=0.6900 lr=1.04e-04
+[  1222.7s]   e0 step 350/10398 loss=0.6850 lr=1.21e-04
+[  1396.9s]   e0 step 400/10398 loss=0.6831 lr=1.38e-04
+[  1574.5s]   e0 step 450/10398 loss=0.6780 lr=1.56e-04
+[  1713.5s]   e0 step 500/10398 loss=0.6680 lr=1.73e-04
+[  1836.6s]   e0 step 550/10398 loss=0.6528 lr=1.90e-04
+[  1960.5s]   e0 step 600/10398 loss=0.6362 lr=2.08e-04
+[  2086.2s]   e0 step 650/10398 loss=0.6200 lr=2.25e-04
+[  2209.8s]   e0 step 700/10398 loss=0.6056 lr=2.42e-04
+[  2331.5s]   e0 step 750/10398 loss=0.5931 lr=2.59e-04
+[  2454.2s]   e0 step 800/10398 loss=0.5791 lr=2.77e-04
+[  2570.1s]   e0 step 850/10398 loss=0.5688 lr=2.94e-04
+[  2689.8s]   e0 step 900/10398 loss=0.5571 lr=3.00e-04
+[  2803.3s]   e0 step 950/10398 loss=0.5490 lr=3.00e-04
+[  2918.1s]   e0 step 1000/10398 loss=0.5406 lr=3.00e-04
+[  3035.7s]   e0 step 1050/10398 loss=0.5313 lr=3.00e-04
+[  3150.5s]   e0 step 1100/10398 loss=0.5235 lr=3.00e-04
+[  3263.4s]   e0 step 1150/10398 loss=0.5161 lr=2.99e-04
+[  3378.3s]   e0 step 1200/10398 loss=0.5100 lr=2.99e-04
+[  3491.8s]   e0 step 1250/10398 loss=0.5037 lr=2.99e-04
+[  3603.5s]   e0 step 1300/10398 loss=0.4978 lr=2.99e-04

@@ -1,0 +1,1 @@
+{"epoch": 0, "train_loss": 0.50555, "canary_freuid": 0.97354, "audet": 0.51973, "roc_auc": 0.48027, "ho_auc": 0.9167, "ho_gap": 0.0537, "ev_DLC_auc": 0.594, "ev_DLC_gp": 0.45, "ev_DLC_fp": 0.4847, "ev_SIDTDC_auc": 0.6081, "ev_SIDTDC_gp": 0.4395, "ev_SIDTDC_fp": 0.4583}

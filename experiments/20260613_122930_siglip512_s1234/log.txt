@@ -1,0 +1,45 @@
+[     0.0s] === 20260613_122930_siglip512_s1234 ===
+[     0.0s] config: {"name": "siglip512_s1234", "backbone": "vit_so400m_patch16_siglip_512.v2_webli", "rank": 16, "alpha": 32, "attn_only": false, "epochs": 3, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 1234, "subset": 0, "skip_infer": false, "num_workers": 2, "out": "subs/siglip512_s1234.csv"}
+[     7.9s] backbone=vit_so400m_patch16_siglip_512.v2_webli img=512 mean=(0.5, 0.5, 0.5) | DoRA layers=108 | trainable=7.98M
+[    12.5s] train=68985 | canary val=367 (digital 347 + recaptured 20)
+[   164.8s]   e0 step 50/12933 loss=0.6302 lr=1.00e-05
+[   303.1s]   e0 step 100/12933 loss=0.6084 lr=2.00e-05
+[   440.6s]   e0 step 150/12933 loss=0.5654 lr=3.00e-05
+[   577.8s]   e0 step 200/12933 loss=0.4906 lr=4.00e-05
+[   717.0s]   e0 step 250/12933 loss=0.4050 lr=5.00e-05
+[   855.3s]   e0 step 300/12933 loss=0.3439 lr=6.00e-05
+[   990.1s]   e0 step 350/12933 loss=0.3017 lr=7.00e-05
+[  1125.9s]   e0 step 400/12933 loss=0.2683 lr=8.00e-05
+[  1261.2s]   e0 step 450/12933 loss=0.2430 lr=9.00e-05
+[  1394.8s]   e0 step 500/12933 loss=0.2255 lr=1.00e-04
+[  1529.5s]   e0 step 550/12933 loss=0.2121 lr=1.10e-04
+[  1664.4s]   e0 step 600/12933 loss=0.1960 lr=1.20e-04
+[  1802.2s]   e0 step 650/12933 loss=0.1816 lr=1.30e-04
+[  1939.1s]   e0 step 700/12933 loss=0.1712 lr=1.40e-04
+[  2073.9s]   e0 step 750/12933 loss=0.1635 lr=1.50e-04
+[  2208.4s]   e0 step 800/12933 loss=0.1562 lr=1.60e-04
+[  2342.9s]   e0 step 850/12933 loss=0.1487 lr=1.70e-04
+[  2476.2s]   e0 step 900/12933 loss=0.1425 lr=1.80e-04
+[  2611.4s]   e0 step 950/12933 loss=0.1376 lr=1.90e-04
+[  2748.9s]   e0 step 1000/12933 loss=0.1343 lr=2.00e-04
+[  2886.3s]   e0 step 1050/12933 loss=0.1328 lr=2.00e-04
+[  3022.5s]   e0 step 1100/12933 loss=0.1278 lr=2.00e-04
+[  3159.9s]   e0 step 1150/12933 loss=0.1244 lr=2.00e-04
+[  3296.8s]   e0 step 1200/12933 loss=0.1197 lr=2.00e-04
+[  3431.8s]   e0 step 1250/12933 loss=0.1175 lr=2.00e-04
+[  3563.4s]   e0 step 1300/12933 loss=0.1141 lr=2.00e-04
+[  3694.8s]   e0 step 1350/12933 loss=0.1109 lr=2.00e-04
+[  3826.1s]   e0 step 1400/12933 loss=0.1085 lr=1.99e-04
+[  3960.6s]   e0 step 1450/12933 loss=0.1069 lr=1.99e-04
+[  4092.6s]   e0 step 1500/12933 loss=0.1042 lr=1.99e-04
+[  4227.1s]   e0 step 1550/12933 loss=0.1017 lr=1.99e-04
+[  4359.9s]   e0 step 1600/12933 loss=0.0999 lr=1.99e-04
+[  4492.6s]   e0 step 1650/12933 loss=0.0972 lr=1.99e-04
+[  4625.4s]   e0 step 1700/12933 loss=0.0957 lr=1.98e-04
+[  4758.1s]   e0 step 1750/12933 loss=0.0944 lr=1.98e-04
+[  4891.6s]   e0 step 1800/12933 loss=0.0925 lr=1.98e-04
+[  5029.2s]   e0 step 1850/12933 loss=0.0916 lr=1.98e-04
+[  5166.5s]   e0 step 1900/12933 loss=0.0901 lr=1.97e-04
+[  5303.2s]   e0 step 1950/12933 loss=0.0888 lr=1.97e-04
+[  5440.9s]   e0 step 2000/12933 loss=0.0870 lr=1.97e-04
+[  5573.4s]   e0 step 2050/12933 loss=0.0862 lr=1.96e-04

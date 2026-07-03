@@ -1,0 +1,7 @@
+[    0.0s] === 20260618_065833_probe_smoke ===  config: {"tag": "vit_large_dinov3", "img": 512, "name": "probe_smoke", "hidden": 0, "epochs": 20, "batch": 512, "lr": 0.001, "weight_decay": 0.01, "dropout": 0.1, "seed": 42, "loto_types": "", "out": "subs/_probe_smoke.csv"}
+[    2.9s] train=3987 val=13 (digital 10 + recaptured 3) | feat_dim=2048
+[    3.5s] metrics {"epoch": 0, "loss": 0.5908, "canary_freuid": 0.31818, "roc_auc": 0.75}
+[    3.8s] metrics {"epoch": 10, "loss": 0.32384, "canary_freuid": 0.0, "roc_auc": 1.0}
+[    4.1s] metrics {"epoch": 19, "loss": 0.25628, "canary_freuid": 0.0, "roc_auc": 1.0}
+[    4.1s] best canary_freuid=0.00000 @ epoch 19
+[    6.7s] wrote E:\the-freuid-challenge-2026-ijcai-ecai\subs\_probe_smoke.csv (142818 rows; 142318 filled 0.5) | DONE 0.1 min

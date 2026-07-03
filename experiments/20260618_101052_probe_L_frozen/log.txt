@@ -1,0 +1,11 @@
+[    0.0s] === 20260618_101052_probe_L_frozen ===  config: {"tag": "vit_large_dinov3", "img": 512, "name": "probe_L_frozen", "hidden": 0, "epochs": 60, "batch": 512, "lr": 0.001, "weight_decay": 0.01, "dropout": 0.1, "seed": 42, "loto_types": "", "out": "subs/dinov3_L_frozen.csv"}
+[    3.9s] train=68985 val=367 (digital 347 + recaptured 20) | feat_dim=2048
+[    6.2s] metrics {"epoch": 0, "loss": 0.37673, "canary_freuid": 0.15141, "roc_auc": 0.9685, "ho_auc": 0.6429, "ho_gap": -0.088}
+[   11.6s] metrics {"epoch": 10, "loss": 0.15993, "canary_freuid": 0.05041, "roc_auc": 0.99092, "ho_auc": 0.619, "ho_gap": -0.1604}
+[   16.7s] metrics {"epoch": 20, "loss": 0.15291, "canary_freuid": 0.0487, "roc_auc": 0.99466, "ho_auc": 0.5476, "ho_gap": -0.1651}
+[   21.8s] metrics {"epoch": 30, "loss": 0.15196, "canary_freuid": 0.04851, "roc_auc": 0.99507, "ho_auc": 0.5595, "ho_gap": -0.1663}
+[   27.0s] metrics {"epoch": 40, "loss": 0.15025, "canary_freuid": 0.03423, "roc_auc": 0.99435, "ho_auc": 0.5714, "ho_gap": -0.1661}
+[   32.1s] metrics {"epoch": 50, "loss": 0.15248, "canary_freuid": 0.03734, "roc_auc": 0.99544, "ho_auc": 0.5238, "ho_gap": -0.1658}
+[   36.8s] metrics {"epoch": 59, "loss": 0.14703, "canary_freuid": 0.03689, "roc_auc": 0.99639, "ho_auc": 0.5476, "ho_gap": -0.1659}
+[   36.8s] best canary_freuid=0.02609 @ epoch 41
+[   39.5s] wrote E:\the-freuid-challenge-2026-ijcai-ecai\subs\dinov3_L_frozen.csv (142818 rows; 134997 filled 0.5) | DONE 0.7 min

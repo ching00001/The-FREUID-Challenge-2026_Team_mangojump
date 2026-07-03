@@ -1,0 +1,23 @@
+{
+  "name": "siglip512_rcaug",
+  "backbone": "vit_so400m_patch16_siglip_512.v2_webli",
+  "img_size": 0,
+  "rank": 16,
+  "alpha": 32,
+  "attn_only": false,
+  "epochs": 3,
+  "batch": 8,
+  "accum": 2,
+  "lr": 0.0002,
+  "weight_decay": 0.01,
+  "warmup_steps": 1000,
+  "ema_decay": 0.9995,
+  "seed": 42,
+  "subset": 0,
+  "skip_infer": false,
+  "recapture_p": 0.5,
+  "rc_min": 0.2,
+  "rc_max": 0.6,
+  "num_workers": 2,
+  "out": "subs/siglip512_rcaug.csv"
+}
