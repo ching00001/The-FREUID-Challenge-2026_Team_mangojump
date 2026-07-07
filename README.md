@@ -14,7 +14,7 @@ recaptures (DLC-2021) and content-forged physical documents (SIDTD clips).
 | Dataset | License | Use |
 |---|---|---|
 | [DLC-2021](https://zenodo.org/record/DLC2021) | CC BY-SA 2.5 | real original/reprint captures (training mix + arbitration) |
-| [SIDTD](https://tc11.cvc.uab.es/datasets/SIDTD_1) | CC BY-4.0 | content-forged printed documents, video frames (training mix + arbitration) |
+| [SIDTD](https://doi.org/10.34810/data1815) | CC BY-SA 4.0 (CORA DOI record) | content-forged printed documents, video frames (training mix + arbitration) |
 
 Pretrained backbones via `timm`: DINOv3 (Meta), SigLIP-2 (Google), DFN5B (Apple).
 

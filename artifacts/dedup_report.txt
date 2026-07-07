@@ -1,0 +1,32 @@
+train hashes: 69352
+
+[within-train] exact-pHash collision groups: 8505 covering 42511 rows (61.30% of train)
+  largest group size 761, e.g. [np.str_('000a27cd549647359deaa78721858877'), np.str_('0021b62a252248669a16bcaa8d2c1d15'), np.str_('004c16c759114c35b96a842ea1d0cd18'), np.str_('009ff4450d974f62a38e6ecc7155d463'), np.str_('00c99681c13e46379b3f7393f2e3e4e9'), np.str_('00dc43d6dfa24269bb31bc2852f05343'), np.str_('01231a7d7fda45b6b39e6876f01b9548'), np.str_('0129523628174050af6d6f5418d4eb18')]
+
+test hashes: 7821  -> scanning train<->test Hamming distance
+  scanned 1000/7821 (371/s)
+  scanned 2000/7821 (392/s)
+  scanned 3000/7821 (402/s)
+  scanned 4000/7821 (408/s)
+  scanned 5000/7821 (408/s)
+  scanned 6000/7821 (409/s)
+  scanned 7000/7821 (408/s)
+
+[train<->test] test images with a train near-dup (Hamming<= 6): 7810 / 7821 (99.86%)
+  test 0009cd06cf8c426789aa58b2b05c60d2  ~  train 1f4a55be81724ae99132126155ea3dcd  (d=0)
+  test 000c9f83f98c4babac3f030df5300a8e  ~  train 8d9827c2ea1a4205ba324a771774031f  (d=0)
+  test 00102eb7a93f4dfca8e3795ff1b12b5f  ~  train 34adf1fed5b744608b204e9919420232  (d=0)
+  test 00150ae8ab994f22bb1aa188836a5856  ~  train 150f5bf31f4749598672ab8473b6d232  (d=2)
+  test 0022725516a14f7c93f4e2ddebbb0c58  ~  train 031ebb230d3146f6b98b33dda562d91c  (d=0)
+  test 002361d1fae94b6284c2db2ea1e8d40e  ~  train 33343d67bdb84bb29d07e3b5340c84df  (d=2)
+  test 0023dc7c26ee445a95dc4e1182780e13  ~  train 2b38985c56e647528e642ca87c4a8e42  (d=0)
+  test 00255be4240245f09e17c6eb0f285037  ~  train 27fb9ba518f4405fa581361a12dc5926  (d=2)
+  test 0027a160e1204a7e86150dfecce5dca7  ~  train 5a86ad9eaaa74e7dba711d2e1f1ab36e  (d=2)
+  test 002cdc6261074ba09b39af2900ea239a  ~  train a3cf29cf19eb4231a5dc566c3f8ccbeb  (d=0)
+  test 00486dfcb3634cb6aca8a552ec7c7c6b  ~  train 0a85873eec2546779f94f8712b0c73e9  (d=2)
+  test 0069de61c6a747048bd01d1c24807aee  ~  train 027af931d6bd44edac9f94f1546020e0  (d=2)
+  test 006d76bff15e4510af1b9f784bb936e4  ~  train 0e5238d1188645988fa4ed2ba919bea3  (d=2)
+  test 0070126827214a5caf73cf1dabce04ba  ~  train 03e3808d8408465ba3810c3cd8eecdc5  (d=0)
+  test 00725159e0914ad9a015633a9340a0a1  ~  train 2551d1e593204d5485250fc836d9f7e0  (d=2)
+wrote E:\the-freuid-challenge-2026-ijcai-ecai\artifacts\train_test_neardups.csv
+ALL DONE

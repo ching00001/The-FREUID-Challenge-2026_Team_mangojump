@@ -32,6 +32,7 @@ MEMBERS = {
     "dino_hplus": dict(run="20260630_032659_dinov3_hplus_512", kind="fgts", k=64),
     "dino_hplus_dlc": dict(run="20260702_064234_dinov3_hplus_dlcmix", kind="fgts", k=64),
     "dino_hplus_ds": dict(run="20260703_053144_dinov3_hplus_dlcsidtd", kind="fgts", k=64),
+    "siglip_ds": dict(run="20260705_072424_siglip512_dlcsidtd", kind="global"),
     "dino_hplus_global": dict(run="20260630_032659_dinov3_hplus_512", kind="global"),
     "siglip512": dict(run="20260612_134841_siglip512_dora_full", kind="global"),
     "siglip378": dict(run="20260613_052227_siglip378_dora_full", kind="global"),
