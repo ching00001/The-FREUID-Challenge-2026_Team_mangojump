@@ -18,6 +18,22 @@ import torch  # noqa: E402
 import timm   # noqa: E402
 
 
+def local_hub_copy(name) -> bool:
+    """Hydrate from the developer's existing HF cache when possible (offline,
+    no gated-repo token needed). timm names map to hub repos 'timm/<name>'."""
+    import shutil
+    src_home = Path(os.environ.get("USERPROFILE", "~")).expanduser() / ".cache" / "huggingface"
+    repo_dir = f"models--timm--{name}"
+    src = src_home / "hub" / repo_dir
+    if not src.is_dir():
+        return False
+    dst = Path(os.environ["HF_HOME"]) / "hub" / repo_dir
+    if not dst.exists():
+        shutil.copytree(src, dst)
+    print(f"  copied from local cache: {repo_dir}")
+    return True
+
+
 def main():
     seen = set()
     for f in sorted((REPO / "artifacts" / "system" / "adapters_slim").glob("*.pt")):
@@ -26,9 +42,10 @@ def main():
         if name in seen:
             continue
         seen.add(name)
-        print(f"fetching {name} ...", flush=True)
-        m = timm.create_model(name, pretrained=True, num_classes=0)
-        del m
+        print(f"preparing {name} ...", flush=True)
+        if not local_hub_copy(name):
+            m = timm.create_model(name, pretrained=True, num_classes=0)
+            del m
     print(f"done -> {os.environ['HF_HOME']} ({len(seen)} backbones)")
 
 
