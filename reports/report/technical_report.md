@@ -1,6 +1,6 @@
 # Fusion of DoRA-Adapted Foundation Models with OOD-Routed PAD Heads for Identity-Document Fraud Detection
 
-**Team lilwu — The FREUID Challenge 2026 (IJCAI-ECAI)**
+**Team mangojump — The FREUID Challenge 2026 (IJCAI-ECAI)**
 *Hardware budget: one RTX 5060 Ti (16 GB), zero cloud spend.*
 
 ## 1. Introduction
@@ -147,7 +147,7 @@ One Docker image (`docker/Dockerfile`), no network, no runtime training:
 
 ```
 docker run --network none --gpus all -v <images>:/data:ro \
-  -v <out>:/submissions -e VARIANT=routed freuid-lilwu
+  -v <out>:/submissions -e VARIANT=routed freuid-mangojump
 ```
 
 `VARIANT=routed` reproduces final pick 1 (full system); `VARIANT=plain`
@@ -188,7 +188,7 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 ## 6. Reproducibility
 
 * Repository: `<URL>` — frozen commit `<SHA>` (July 13, 2026).
-* Weights: https://huggingface.co/ching0206/freuid-2026-lilwu, revision
+* Weights: https://huggingface.co/ching0206/freuid-2026-mangojump, revision
   `fbe08e1b74631f5fb8cf9ef73e5dc1b01230d401` (adapters + heads + router
   artifacts, ~2.1 GB, per-file sha256-verified; base backbones fetched from
   their original sources at image build).

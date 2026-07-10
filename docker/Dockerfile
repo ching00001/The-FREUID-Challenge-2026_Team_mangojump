@@ -1,13 +1,13 @@
-# FREUID 2026 — team lilwu offline inference image.
+# FREUID 2026 — team mangojump offline inference image.
 #
 # Contract: docker run --network none \
 #   -v <flat image dir>:/data:ro -v <out dir>:/submissions \
-#   -e VARIANT=routed|plain  freuid-lilwu
+#   -e VARIANT=routed|plain  freuid-mangojump
 # -> writes /submissions/submission.csv (id,label)
 #
 # Build (network needed once; see REPRODUCE.md):
 #   python docker/prepare_hf_cache.py        # downloads backbone checkpoints
-#   docker build -f docker/Dockerfile -t freuid-lilwu .
+#   docker build -f docker/Dockerfile -t freuid-mangojump .
 #
 # Weights provenance: DoRA adapters + heads + router artifacts are baked in
 # from artifacts/system/ (frozen commit); base backbones come from the HF

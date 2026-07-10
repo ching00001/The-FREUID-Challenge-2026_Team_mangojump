@@ -7,7 +7,7 @@ tags:
   - freuid-2026
 ---
 
-# FREUID 2026 — team lilwu frozen inference system
+# FREUID 2026 — team mangojump frozen inference system
 
 Frozen weights for our FREUID Challenge 2026 (IJCAI-ECAI) submission:
 feature-level fusion of DoRA-adapted foundation backbones with an

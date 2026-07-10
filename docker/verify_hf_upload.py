@@ -1,6 +1,6 @@
 """Verify the HF weight upload: compare remote LFS sha256 against local files.
 
-  python docker/verify_hf_upload.py <repo_id>          # e.g. lilwu/freuid-2026-lilwu
+  python docker/verify_hf_upload.py <repo_id>          # e.g. ching0206/freuid-2026-mangojump
 
 Exit 0 = every local file in artifacts/system exists remotely with matching
 size/sha256. No downloads needed (uses repo metadata only).

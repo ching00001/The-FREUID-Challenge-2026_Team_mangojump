@@ -1,4 +1,4 @@
-# The FREUID Challenge 2026 — team lilwu
+# The FREUID Challenge 2026 — team mangojump
 
 Fraud detection on identity documents (IJCAI-ECAI 2026 challenge). Final system:
 feature-level fusion of DoRA-finetuned backbones (DINOv3-L/H+, SigLIP-2, DFN5B)

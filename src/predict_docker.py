@@ -10,7 +10,7 @@ training — everything comes from artifacts/system/ (see export_system.py).
   python -m src.predict_docker --data public_test --out submission.csv \
       --variant routed          # local rehearsal
   docker run --network none -v .../images:/data:ro -v .../out:/submissions \
-      -e VARIANT=routed freuid-lilwu
+      -e VARIANT=routed freuid-mangojump
 """
 from __future__ import annotations
 
