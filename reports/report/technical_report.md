@@ -188,9 +188,10 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 ## 6. Reproducibility
 
 * Repository: `<URL>` — frozen commit `<SHA>` (July 13, 2026).
-* Weights: `<HF repo URL>`, revision `<rev>` (adapters + heads + router
-  artifacts, ~2.5 GB; base backbones fetched from their original sources at
-  image build).
+* Weights: https://huggingface.co/ching0206/freuid-2026-lilwu, revision
+  `fbe08e1b74631f5fb8cf9ef73e5dc1b01230d401` (adapters + heads + router
+  artifacts, ~2.1 GB, per-file sha256-verified; base backbones fetched from
+  their original sources at image build).
 * Docker: build and run commands in REPRODUCE.md; canonical output checksums
   and tolerance statement included.
 * Hardware: single NVIDIA RTX 5060 Ti 16 GB, Windows 11, torch 2.11 nightly

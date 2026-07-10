@@ -33,6 +33,14 @@ with columns `id,label` (fraud score in [0,1]).
 Throughput: ≈ 8 min / 1k images on an RTX 5060 Ti (16 GB); the 134,997-image
 private set takes ≈ 19 h. `VARIANT=plain` skips one backbone (~15 % faster).
 
+## Frozen weights
+
+All inference artifacts are mirrored at
+https://huggingface.co/ching0206/freuid-2026-lilwu
+(revision `fbe08e1b74631f5fb8cf9ef73e5dc1b01230d401`, per-file sha256 matches
+this repo's `artifacts/system/` bit-for-bit; verify with
+`python docker/verify_hf_upload.py ching0206/freuid-2026-lilwu`).
+
 ## What is frozen where
 
 | Artifact | Path | Notes |
