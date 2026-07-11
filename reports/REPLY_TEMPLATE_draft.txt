@@ -12,7 +12,7 @@ Final Kaggle submission(s):
 Repository URL: <GitHub URL>
 Commit SHA: <40-char frozen commit>
 Technical report PDF: <URL — repo 內 PDF 的 raw 連結或 release asset>
-Weights: https://huggingface.co/ching0206/freuid-2026-mangojump @ <rename 後的 revision>
+Weights: https://huggingface.co/ching0206/freuid-2026-mangojump @ 156f6e6ecf03e4a116ddf04a6a14be149a20fa9d
 
 Compliance confirmation: We confirm the code at the above commit is
 OSI-licensed (MIT), all external data and pretrained models are publicly

@@ -37,7 +37,7 @@ private set takes ≈ 19 h. `VARIANT=plain` skips one backbone (~15 % faster).
 
 All inference artifacts are mirrored at
 https://huggingface.co/ching0206/freuid-2026-mangojump
-(revision `fbe08e1b74631f5fb8cf9ef73e5dc1b01230d401`, per-file sha256 matches
+(revision `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`, per-file sha256 matches
 this repo's `artifacts/system/` bit-for-bit; verify with
 `python docker/verify_hf_upload.py ching0206/freuid-2026-mangojump`).
 

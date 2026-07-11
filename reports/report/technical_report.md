@@ -189,7 +189,7 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 
 * Repository: `<URL>` — frozen commit `<SHA>` (July 13, 2026).
 * Weights: https://huggingface.co/ching0206/freuid-2026-mangojump, revision
-  `fbe08e1b74631f5fb8cf9ef73e5dc1b01230d401` (adapters + heads + router
+  `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d` (adapters + heads + router
   artifacts, ~2.1 GB, per-file sha256-verified; base backbones fetched from
   their original sources at image build).
 * Docker: build and run commands in REPRODUCE.md; canonical output checksums
