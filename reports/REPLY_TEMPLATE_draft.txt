@@ -1,0 +1,25 @@
+Team name: mangojump
+Kaggle usernames: lilwu, <同學帳號們，逗號分隔>
+Contact: <隊長姓名>, <email>
+
+Final Kaggle submission(s):
+  Pick 1 (expected ranking pick) - FINAL_routed.csv, submitted <7/14 時間戳 as shown on Kaggle>
+    - reproduced via: docker run --network none --gpus all -v <test images>:/data:ro -v <out>:/submissions -e VARIANT=routed freuid-mangojump
+  Pick 2 (router-off ablation) - FINAL_routed_plain.csv, submitted <7/14 時間戳>
+    - reproduced via: docker run --network none --gpus all -v <test images>:/data:ro -v <out>:/submissions -e VARIANT=plain freuid-mangojump
+  (mapping with output checksums and floating-point tolerance: REPRODUCE.md in the repo)
+
+Repository URL: <GitHub URL>
+Commit SHA: <40-char frozen commit>
+Technical report PDF: <URL — repo 內 PDF 的 raw 連結或 release asset>
+Weights: https://huggingface.co/ching0206/freuid-2026-mangojump @ <rename 後的 revision>
+
+Compliance confirmation: We confirm the code at the above commit is
+OSI-licensed (MIT), all external data and pretrained models are publicly
+available, license-compatible, and cited in the report (DLC-2021 CC BY-SA 2.5;
+SIDTD CC BY-SA 4.0; DINOv3 / SigLIP-2 / DFN5B under their respective
+licenses), no model or training changes were made after the July 13 code
+freeze, and both final picks are produced by the same frozen weights via the
+documented inference-time flag.
+
+Team captain: <姓名>, <UTC 日期>
