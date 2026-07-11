@@ -24,8 +24,39 @@ Pretrained backbones via `timm`: DINOv3 (Meta), SigLIP-2 (Google), DFN5B (Apple)
 src/                training, fusion, router, evaluation
 src/data/           dataset indexing + selective external-data fetchers
 experiments/        run configs + metrics (checkpoints excluded from git)
-reports/            working notes
+reports/            working notes, technical report, runbooks
+docker/             offline inference image (see REPRODUCE.md)
+artifacts/system/   frozen inference artifacts (mirrored on Hugging Face)
 ```
+
+## Data setup
+
+**Inference only (reproducing the final submissions): no data setup needed.**
+The Docker image / `src.predict_docker` takes any flat directory of images —
+see REPRODUCE.md.
+
+**Training reproduction** expects this layout under the repo root (or under
+`$FREUID_DATA` if you set that environment variable; see `src/data/paths.py`):
+
+```
+train_labels.csv                  competition CSV (id, label, is_digital, type)
+sample_submission.csv             competition CSV (defines the test id list)
+train/train/<id>.jpeg             training images (nested dir, as Kaggle unzips)
+public_test/public_test/<id>.jpeg public test images
+external/dlc2021/...              DLC-2021 frames  -> fetch: reports/dlc2021_setup.md,
+                                  then `python -m src.data.index_dlc2021`
+                                  (writes artifacts/dlc2021_index.csv)
+external/sidtd/clips_cropped/...  SIDTD frames     -> `python -m src.data.fetch_sidtd_clips`
+                                  (HTTP-Range selective fetch, ~700 MB;
+                                  writes artifacts/sidtd_clips_index.csv)
+```
+
+Competition data comes from the Kaggle competition page (not redistributed
+here). Derived index/split CSVs land in `artifacts/`:
+`python -m src.dlc_split` writes the doctype-disjoint DLC train/holdout split;
+`python -m src.data.build_extra_mix` writes
+`artifacts/extra_train_dlc_sidtd.csv` / `extra_val_dlc_sidtd.csv` — the exact
+external-mix files passed to training via `--extra_data` / `--extra_val`.
 
 ## License
 
