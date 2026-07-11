@@ -11,7 +11,13 @@ external/
 
 # heavy artifacts (features, checkpoints; packaged into the Docker image instead)
 artifacts/*.npz
+artifacts/*.log
 artifacts/fusion_cache/
+artifacts/smoke_data/
+artifacts/system/*
+!artifacts/system/README.md
+!artifacts/system/config.json
+docker/hf_cache/
 experiments/*/adapters.pt
 experiments/*/model.pt
 experiments/*/*.tmp
