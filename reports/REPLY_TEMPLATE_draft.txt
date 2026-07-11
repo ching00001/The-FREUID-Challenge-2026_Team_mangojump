@@ -9,7 +9,7 @@ Final Kaggle submission(s):
     - reproduced via: docker run --network none --gpus all -v <test images>:/data:ro -v <out>:/submissions -e VARIANT=plain freuid-mangojump
   (mapping with output checksums and floating-point tolerance: REPRODUCE.md in the repo)
 
-Repository URL: <GitHub URL>
+Repository URL: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump
 Commit SHA: <40-char frozen commit>
 Technical report PDF: <URL — repo 內 PDF 的 raw 連結或 release asset>
 Weights: https://huggingface.co/ching0206/freuid-2026-mangojump @ 156f6e6ecf03e4a116ddf04a6a14be149a20fa9d
