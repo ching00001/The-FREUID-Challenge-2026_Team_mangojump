@@ -42,7 +42,7 @@ Dual-hosted, identical bytes (sha256-verified):
 - **Hugging Face** — what `docker build` actually fetches, via
   `download_weights.py`, at the pinned revision:
   https://huggingface.co/ching0206/freuid-2026-mangojump
-  @ `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`.
+  @ `a36f036aba49ede6890761c927fae8f1951922c9`.
 - **This repository**, via Git LFS: `artifacts/system/` — a convenience
   mirror for browsing or offline use; not read by the Docker build itself
   (excluded from the build context by `.dockerignore`).

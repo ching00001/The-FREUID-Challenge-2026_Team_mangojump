@@ -189,7 +189,7 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 
 * Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `<SHA, declared at the July 13 freeze>`.
 * Weights: https://huggingface.co/ching0206/freuid-2026-mangojump, revision
-  `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d` (adapters + heads + router
+  `a36f036aba49ede6890761c927fae8f1951922c9` (adapters + heads + router
   artifacts, ~2.1 GB, per-file sha256-verified; base backbones fetched from
   their original sources at image build).
 * Docker: build and run commands in REPRODUCE.md; canonical output checksums
