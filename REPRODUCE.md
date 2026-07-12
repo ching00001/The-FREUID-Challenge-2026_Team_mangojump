@@ -20,8 +20,7 @@ per-row mean |Δ| ≈ 3e-4, decision flips ≤ 0.04 % of rows, leaderboard impac
 
 ```bash
 # no HF account/token needed: all four backbones are ungated timm mirrors
-python docker/prepare_hf_cache.py        # ~8 GB of backbone checkpoints
-docker build -f docker/Dockerfile -t freuid-mangojump .
+docker build -t freuid-mangojump .
 ```
 
 ## Run (no network)

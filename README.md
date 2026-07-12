@@ -36,8 +36,7 @@ tolerance statement live in [REPRODUCE.md](REPRODUCE.md):
 
 ```bash
 # no HF account/token needed: all four backbones are ungated timm mirrors
-python docker/prepare_hf_cache.py                 # backbone checkpoints, ~8 GB
-docker build -f docker/Dockerfile -t freuid-mangojump .
+docker build -t freuid-mangojump .
 
 docker run --rm --network none --gpus all \
   -v /path/to/flat/test/images:/data:ro -v "$(pwd)/out:/submissions" \
