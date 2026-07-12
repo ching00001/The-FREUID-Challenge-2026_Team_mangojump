@@ -19,8 +19,8 @@ per-row mean |Δ| ≈ 3e-4, decision flips ≤ 0.04 % of rows, leaderboard impac
 ## Build (network required once)
 
 ```bash
-export HF_TOKEN=<token with access to gated facebook/dinov3-* repos>
-python docker/prepare_hf_cache.py        # ~11 GB of backbone checkpoints
+# no HF account/token needed: all four backbones are ungated timm mirrors
+python docker/prepare_hf_cache.py        # ~8 GB of backbone checkpoints
 docker build -f docker/Dockerfile -t freuid-mangojump .
 ```
 

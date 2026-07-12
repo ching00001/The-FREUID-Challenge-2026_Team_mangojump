@@ -1,8 +1,8 @@
 """Pre-download backbone checkpoints into docker/hf_cache (build-time, online).
 
 Reads the backbone names straight from the frozen adapters so the cache always
-matches artifacts/system/. DINOv3 checkpoints are gated on Hugging Face —
-export HF_TOKEN (or `huggingface-cli login`) before running.
+matches artifacts/system/. All four backbones are ungated timm mirrors —
+no Hugging Face account or token is required (verified 2026-07-11).
 
   python docker/prepare_hf_cache.py
 """

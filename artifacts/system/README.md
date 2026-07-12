@@ -27,7 +27,7 @@ this repo holds only the weight artifacts consumed by `src/predict_docker.py`.
 
 ## Base models (fetch from original sources; only deltas are hosted here)
 
-- DINOv3 ViT-L/16 & ViT-H+/16 (`timm/vit_{large,huge_plus}_patch16_dinov3.lvd1689m`) — Meta AI, DINOv3 license (gated)
+- DINOv3 ViT-L/16 & ViT-H+/16 (`timm/vit_{large,huge_plus}_patch16_dinov3.lvd1689m`) — Meta AI, DINOv3 license (timm mirrors, ungated)
 - SigLIP-2 SO400M/16 @512 (`timm/vit_so400m_patch16_siglip_512.v2_webli`) — Apache-2.0
 - DFN5B CLIP ViT-H/14 @378 (`timm/vit_huge_patch14_clip_378.dfn5b`) — Apple ASCL
 

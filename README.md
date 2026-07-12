@@ -35,7 +35,7 @@ One offline image, one flag — full details, checksums, and the floating-point
 tolerance statement live in [REPRODUCE.md](REPRODUCE.md):
 
 ```bash
-export HF_TOKEN=<token with access to gated facebook/dinov3-* repos>
+# no HF account/token needed: all four backbones are ungated timm mirrors
 python docker/prepare_hf_cache.py                 # backbone checkpoints, ~8 GB
 docker build -f docker/Dockerfile -t freuid-mangojump .
 
