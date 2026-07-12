@@ -201,9 +201,39 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 * Per-run configs and metrics: `experiments/<run_id>/{config.json,
   metrics.jsonl}`.
 
-## Acknowledgments / citations
+## References
 
-DLC-2021 (Document Liveness Challenge); SIDTD (Boned et al., *Scientific
-Data* 2024, DOI 10.34810/data1815); MIDV-2020 (upstream of SIDTD); DINOv3
-(Meta AI); SigLIP-2 (Google DeepMind); DFN5B (Apple); DoRA (Liu et al., 2024);
-timm. Full citations to be added in the camera-ready PDF.
+[1] S.-Y. Liu, C.-Y. Wang, H. Yin, P. Molchanov, Y.-C. F. Wang, K.-T. Cheng,
+M.-H. Chen. *DoRA: Weight-Decomposed Low-Rank Adaptation.* ICML 2024.
+arXiv:2402.09353.
+
+[2] O. Siméoni et al. *DINOv3.* Meta AI, 2025. arXiv:2508.10104.
+
+[3] M. Tschannen et al. *SigLIP 2: Multilingual Vision-Language Encoders with
+Improved Semantic Understanding, Localization, and Dense Features.* 2025.
+arXiv:2502.14786.
+
+[4] A. Fang, A. M. Jose, A. Jain, L. Schmidt, A. Toshev, V. Shankar. *Data
+Filtering Networks.* 2023. arXiv:2309.17425. (DFN5B CLIP ViT-H/14.)
+
+[5] Z. Huang, J. Li, H. Wen, T. Li, X. Yang, L. Qi, B. Peng, X. Huang,
+M.-H. Yang, G. Cheng. *Rethinking Cross-Generator Image Forgery Detection
+through DINOv3.* 2025. arXiv:2511.22471. (Basis of our Fisher-guided token
+selection for DINOv3 members.)
+
+[6] D. V. Polevoy, I. V. Sigareva, D. M. Ershova, V. V. Arlazarov,
+D. P. Nikolaev, Z. Ming, M. M. Luqman, J.-C. Burie. *Document Liveness
+Challenge Dataset (DLC-2021).* Journal of Imaging 8(7):181, 2022.
+DOI 10.3390/jimaging8070181. Data: Zenodo (CC BY-SA 2.5).
+
+[7] C. Boned, M. Talarmain, N. Ghanmi, G. Chiron, S. Biswas, A. M. Awal,
+O. Ramos Terrades. *Synthetic dataset of ID and Travel Documents.* Scientific
+Data 11, 2024. DOI 10.1038/s41597-024-04160-9. Dataset: CORA,
+DOI 10.34810/data1815 (CC BY-SA 4.0).
+
+[8] K. Bulatov et al. *MIDV-2020: A Comprehensive Benchmark Dataset for
+Identity Document Analysis.* Computer Optics 46(2), 2022. arXiv:2107.00396.
+(Upstream corpus of SIDTD.)
+
+[9] R. Wightman. *PyTorch Image Models (timm).* GitHub, 2019.
+DOI 10.5281/zenodo.4414861.
