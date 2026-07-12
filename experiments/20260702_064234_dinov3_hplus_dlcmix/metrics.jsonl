@@ -1,3 +1,0 @@
-{"epoch": 0, "train_loss": 0.07682, "canary_freuid": 0.0, "audet": 0.0, "roc_auc": 1.0, "ho_auc": 0.5357, "ho_gap": 0.0353, "ev_auc": 0.9996, "ev_genuine_p": 0.1105, "ev_fraud_p": 0.9708}
-{"epoch": 1, "train_loss": 0.00503, "canary_freuid": 0.0, "audet": 0.0, "roc_auc": 1.0, "ho_auc": 0.8214, "ho_gap": 0.5981, "ev_auc": 1.0, "ev_genuine_p": 0.0009, "ev_fraud_p": 0.9989}
-{"epoch": 2, "train_loss": 0.00119, "canary_freuid": 0.0, "audet": 0.0, "roc_auc": 1.0, "ho_auc": 0.869, "ho_gap": 0.7217, "ev_auc": 1.0, "ev_genuine_p": 0.0001, "ev_fraud_p": 0.9999}

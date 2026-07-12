@@ -1,0 +1,15 @@
+# Inference-only dependencies for the Docker image (src/predict_docker.py +
+# download_weights.py + docker/prepare_hf_cache.py). Deliberately NOT pinned
+# to our local training environment (env/requirements.txt uses a Blackwell-
+# specific cu128 nightly torch build that only installs from PyTorch's own
+# index) so this installs on a plain `pip install -r requirements.txt` in any
+# sandbox, CPU or CUDA (the public PyPI torch wheel bundles its own CUDA
+# runtime and works with `docker run --gpus all` via nvidia-container-toolkit,
+# or falls back to CPU automatically — predict_docker.py detects both).
+torch==2.5.1
+torchvision==0.20.1
+timm==1.0.22
+numpy==2.2.6
+pandas==2.2.2
+pillow==11.2.1
+huggingface_hub==0.33.0

@@ -198,8 +198,11 @@ public comparisons are unaffected by the disclosed metric-leak issue.
   cu128. Member training 10–19 h each; head/router training is seconds on
   cached features; full-system inference on the 134,997-image private set
   ≈ 19 h.
-* Per-run configs and metrics: `experiments/<run_id>/{config.json,
-  metrics.jsonl}`.
+* Training commands and hyperparameters for every member are given in full in
+  §2.1; raw per-run logs are not shipped in the repository (kept lean for the
+  frozen submission) but every run is reproducible from `src/train_DINOV3L_512.py`
+  with the documented flags (`--backbone`, `--extra_data`, `--extra_frac`,
+  `--extra_val`).
 
 ## References
 

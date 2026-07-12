@@ -152,11 +152,17 @@ def main():
     ref = np.load(SYS / "knn_ref.npz")
     Ntr, ref_dims = ref["Ntr"], ref["dims"].tolist()
 
-    paths = sorted(p for p in Path(args.data).iterdir()
-                   if p.suffix.lower() in EXTS)
+    data_dir = Path(args.data)
+    if not data_dir.is_dir():
+        raise SystemExit(f"input directory not found: {data_dir}")
+    paths = sorted(p for p in data_dir.iterdir()
+                   if p.is_file() and p.suffix.lower() in EXTS)
     ids = [p.stem for p in paths]
     print(f"variant={args.variant} device={device} images={len(paths)}")
-    assert paths, f"no images under {args.data}"
+    if not paths:
+        raise SystemExit(f"no supported images under {data_dir}")
+    if len(ids) != len(set(ids)):
+        raise SystemExit("duplicate image ids from filenames with different extensions")
 
     # base members are a prefix of pad members -> extract straight into ONE
     # array; the base view costs no extra memory (135k imgs = ~4GB fp32).

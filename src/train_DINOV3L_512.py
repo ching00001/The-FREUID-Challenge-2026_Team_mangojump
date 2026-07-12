@@ -16,7 +16,6 @@ from torch.utils.data import DataLoader, Dataset, WeightedRandomSampler
 from torchvision import transforms as T
 
 from .data.paths import REPO_ROOT, load_test, load_train
-from .metric import freuid_score
 
 EXP_ROOT = REPO_ROOT / "experiments"
 
@@ -199,6 +198,8 @@ def collect(model, loader, device):
 
 
 def main():
+    from .metric import freuid_score
+
     ap = argparse.ArgumentParser()
     # defaults = the best public model (DINOv3 ViT-L @512 = LB 0.01134);
     # `python -m src.train_siglip512` reproduces subs/dinov3_l512.csv with no args.

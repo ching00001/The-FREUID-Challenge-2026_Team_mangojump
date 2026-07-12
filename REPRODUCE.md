@@ -7,8 +7,11 @@ in an inference-time flag (confirmed acceptable by the organizers).
 
 | Kaggle submission | Command | Public LB | Output checksum* |
 |---|---|---|---|
-| `final_routed.csv` (Pick 1, expected ranking pick) | `docker run --network none --gpus all -v <images>:/data:ro -v <out>:/submissions -e VARIANT=routed freuid-mangojump` | 0.00207 | `<md5, filled at freeze>` |
+| `final_routed.csv` (Pick 1, expected ranking pick) | `docker run --network none -v <images>:/data:ro -v <out>:/submissions -e VARIANT=routed freuid-mangojump` | 0.00207 | `<md5, filled at freeze>` |
 | `final_plain.csv` (Pick 2, router-off ablation) | same with `-e VARIANT=plain` | 0.00207 | `<md5, filled at freeze>` |
+
+Add `--gpus all` if the host has `nvidia-container-toolkit` configured (large
+speedup; the image auto-detects CUDA vs. CPU — see Hardware/Throughput below).
 
 \* Checksums are from our canonical run (RTX 5060 Ti 16GB, torch
 2.11.0.dev20251223+cu128). GPU inference is not bit-portable across
@@ -20,8 +23,7 @@ per-row mean |Δ| ≈ 3e-4, decision flips ≤ 0.04 % of rows, leaderboard impac
 
 ```bash
 # no HF account/token needed: all four backbones are ungated timm mirrors
-python docker/prepare_hf_cache.py        # ~8 GB of backbone checkpoints
-docker build -f docker/Dockerfile -t freuid-mangojump .
+docker build -t freuid-mangojump .
 ```
 
 ## Run (no network)
@@ -35,11 +37,18 @@ private set takes ≈ 19 h. `VARIANT=plain` skips one backbone (~15 % faster).
 
 ## Frozen weights
 
-All inference artifacts are mirrored at
-https://huggingface.co/ching0206/freuid-2026-mangojump
-(revision `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`, per-file sha256 matches
-this repo's `artifacts/system/` bit-for-bit; verify with
-`python docker/verify_hf_upload.py ching0206/freuid-2026-mangojump`).
+Dual-hosted, identical bytes (sha256-verified):
+
+- **Hugging Face** — what `docker build` actually fetches, via
+  `download_weights.py`, at the pinned revision:
+  https://huggingface.co/ching0206/freuid-2026-mangojump
+  @ `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`.
+- **This repository**, via Git LFS: `artifacts/system/` — a convenience
+  mirror for browsing or offline use; not read by the Docker build itself
+  (excluded from the build context by `.dockerignore`).
+
+Verify the two match:
+`python docker/verify_hf_upload.py ching0206/freuid-2026-mangojump`.
 
 ## What is frozen where
 

@@ -1,6 +1,0 @@
-{"step": 0, "elapsed_s": 1610.5, "epoch": 0, "train_loss": 0.30583, "freuid": 0.20504, "audet": 0.08649, "apcer@1bpcer": 0.29635, "roc_auc": 0.91351, "ho_auc": 0.5298, "ho_gap": 0.0239}
-{"step": 1, "elapsed_s": 3200.9, "epoch": 1, "train_loss": 0.02932, "freuid": 0.0052, "audet": 0.00133, "apcer@1bpcer": 0.00903, "roc_auc": 0.99867, "ho_auc": 0.8929, "ho_gap": 0.3352}
-{"step": 2, "elapsed_s": 4791.9, "epoch": 2, "train_loss": 0.01583, "freuid": 0.00013, "audet": 8e-05, "apcer@1bpcer": 0.00017, "roc_auc": 0.99992, "ho_auc": 0.9167, "ho_gap": 0.4974}
-{"step": 3, "elapsed_s": 6379.9, "epoch": 3, "train_loss": 0.00845, "freuid": 0.00015, "audet": 0.00013, "apcer@1bpcer": 0.00017, "roc_auc": 0.99987, "ho_auc": 0.9167, "ho_gap": 0.5422}
-{"step": 4, "elapsed_s": 7947.5, "epoch": 4, "train_loss": 0.00496, "freuid": 0.00016, "audet": 0.00014, "apcer@1bpcer": 0.00017, "roc_auc": 0.99986, "ho_auc": 0.8929, "ho_gap": 0.5635}
-{"step": 5, "elapsed_s": 9494.8, "epoch": 5, "train_loss": 0.0025, "freuid": 0.00016, "audet": 0.00014, "apcer@1bpcer": 0.00017, "roc_auc": 0.99986, "ho_auc": 0.8929, "ho_gap": 0.6082}

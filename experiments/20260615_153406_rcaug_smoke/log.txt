@@ -1,7 +1,0 @@
-[     0.0s] === 20260615_153406_rcaug_smoke ===
-[     0.0s] config: {"name": "rcaug_smoke", "backbone": "vit_so400m_patch16_siglip_512.v2_webli", "img_size": 0, "rank": 16, "alpha": 32, "attn_only": false, "epochs": 1, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 42, "subset": 200, "skip_infer": true, "recapture_p": 0.5, "rc_min": 0.2, "rc_max": 0.6, "num_workers": 2, "out": "subs/siglip512_dora.csv"}
-[     6.7s] backbone=vit_so400m_patch16_siglip_512.v2_webli img=512 mean=(0.5, 0.5, 0.5) | DoRA layers=108 | trainable=7.98M
-[     6.7s] recapture aug ON: p=0.5 strength U[0.2,0.6]
-[    10.0s] train=200 | canary val=367 (digital 347 + recaptured 20)
-[    85.1s] metrics {"epoch": 0, "train_loss": 0.58873, "canary_freuid": 0.96068, "audet": 0.46223, "roc_auc": 0.53777, "ho_auc": 0.369, "ho_gap": -0.0331}
-[    88.3s] skip_infer set — done (training only)

@@ -1,5 +1,0 @@
-[     0.0s] === 20260617_125832_dinov3_l640 ===
-[     0.0s] config: {"name": "dinov3_l640", "backbone": "vit_large_patch16_dinov3.lvd1689m", "img_size": 640, "rank": 16, "alpha": 32, "attn_only": false, "epochs": 3, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 42, "subset": 0, "skip_infer": false, "recapture_p": 0.0, "rc_min": 0.2, "rc_max": 0.6, "loto_types": "", "num_workers": 2, "out": "subs/dinov3_l640.csv"}
-[     4.4s] backbone=vit_large_patch16_dinov3.lvd1689m img=640 mean=(0.485, 0.456, 0.406) | DoRA layers=96 | trainable=6.52M
-[     7.4s] train=68985 | canary val=367 (digital 347 + recaptured 20)
-[   199.6s]   e0 step 50/12933 loss=0.6108 lr=1.00e-05

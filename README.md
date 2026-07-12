@@ -36,18 +36,19 @@ tolerance statement live in [REPRODUCE.md](REPRODUCE.md):
 
 ```bash
 # no HF account/token needed: all four backbones are ungated timm mirrors
-python docker/prepare_hf_cache.py                 # backbone checkpoints, ~8 GB
-docker build -f docker/Dockerfile -t freuid-mangojump .
+docker build -t freuid-mangojump .
 
-docker run --rm --network none --gpus all \
+docker run --rm --network none \
   -v /path/to/flat/test/images:/data:ro -v "$(pwd)/out:/submissions" \
   -e VARIANT=routed freuid-mangojump               # final pick 1
 # -e VARIANT=plain                                 # final pick 2 (router off)
+# add --gpus all if the host has nvidia-container-toolkit (CPU fallback otherwise)
 ```
 
-Model weights: frozen in `artifacts/system/` and mirrored (sha256-verified) at
-[ching0206/freuid-2026-mangojump](https://huggingface.co/ching0206/freuid-2026-mangojump),
-revision `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`.
+Model weights: frozen in `artifacts/system/` (Git LFS, this repo) and
+[ching0206/freuid-2026-mangojump](https://huggingface.co/ching0206/freuid-2026-mangojump)
+(what the Docker build actually fetches), revision
+`156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`, sha256-verified identical.
 
 **Hardware**: everything (training and inference) ran on a single NVIDIA RTX
 5060 Ti 16 GB, Windows 11, torch 2.11 nightly cu128. Inference ≈ 8 min / 1k
