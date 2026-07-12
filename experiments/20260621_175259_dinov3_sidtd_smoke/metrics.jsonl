@@ -1,1 +1,0 @@
-{"epoch": 0, "train_loss": 0.724, "canary_freuid": 0.97354, "audet": 0.52082, "roc_auc": 0.47918, "ho_auc": 0.9167, "ho_gap": 0.0534}

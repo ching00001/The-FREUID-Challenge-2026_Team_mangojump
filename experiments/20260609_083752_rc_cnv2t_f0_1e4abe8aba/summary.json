@@ -1,9 +1,0 @@
-{
-  "run_id": "20260609_083752_rc_cnv2t_f0_1e4abe8aba",
-  "best_epoch": 3,
-  "freuid": 0.14883,
-  "audet": 0.07807,
-  "apcer_at_1pct_bpcer": 0.2095,
-  "roc_auc": 0.92193,
-  "elapsed_min": 227.0
-}

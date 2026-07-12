@@ -1,6 +1,0 @@
-[     0.0s] === 20260616_134218_dinov3_smoke ===
-[     0.0s] config: {"name": "dinov3_smoke", "backbone": "vit_large_patch16_dinov3.lvd1689m", "img_size": 512, "rank": 16, "alpha": 32, "attn_only": false, "epochs": 1, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 42, "subset": 200, "skip_infer": true, "recapture_p": 0.0, "rc_min": 0.2, "rc_max": 0.6, "loto_types": "", "num_workers": 2, "out": "subs/siglip512_dora.csv"}
-[    43.6s] backbone=vit_large_patch16_dinov3.lvd1689m img=512 mean=(0.485, 0.456, 0.406) | DoRA layers=96 | trainable=6.52M
-[    50.0s] train=200 | canary val=367 (digital 347 + recaptured 20)
-[   116.5s] metrics {"epoch": 0, "train_loss": 0.5773, "canary_freuid": 0.97354, "audet": 0.52223, "roc_auc": 0.47777, "ho_auc": 0.9167, "ho_gap": 0.0538}
-[   118.2s] skip_infer set — done (training only)

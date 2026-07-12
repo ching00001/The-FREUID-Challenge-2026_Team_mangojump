@@ -1,9 +1,0 @@
-[     0.0s] === 20260616_043723_loto_smoke ===
-[     0.0s] config: {"name": "loto_smoke", "backbone": "vit_so400m_patch16_siglip_512.v2_webli", "img_size": 0, "rank": 16, "alpha": 32, "attn_only": false, "epochs": 1, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 1000, "ema_decay": 0.9995, "seed": 42, "subset": 200, "skip_infer": true, "recapture_p": 0.5, "rc_min": 0.2, "rc_max": 0.6, "loto_types": "MAURITIUS/ID,GUINEA/DL", "num_workers": 2, "out": "subs/siglip512_dora.csv"}
-[    10.6s] backbone=vit_so400m_patch16_siglip_512.v2_webli img=512 mean=(0.5, 0.5, 0.5) | DoRA layers=108 | trainable=7.98M
-[    10.6s] recapture aug ON: p=0.5 strength U[0.2,0.6]
-[    15.6s] type-LOO: held-out types = MAURITIUS/ID,GUINEA/DL
-[    15.6s] train types = ['BENIN/DL', 'EGYPT/DL', 'MOZAMBIQUE/DL']
-[    15.6s] train=200 | canary val=2420 (digital 2400 + recaptured 20)
-[   178.4s] metrics {"epoch": 0, "train_loss": 0.62995, "canary_freuid": 0.97723, "audet": 0.53227, "roc_auc": 0.46773, "ho_auc": 0.369, "ho_gap": -0.0339}
-[   181.1s] skip_infer set — done (training only)

@@ -1,9 +1,0 @@
-[     0.0s] === 20260702_063841_smoke_dlcmix ===
-[     0.0s] config: {"name": "smoke_dlcmix", "backbone": "vit_large_patch16_dinov3.lvd1689m", "img_size": 512, "rank": 16, "alpha": 32, "attn_only": false, "full_ft": false, "head_lr_mult": 1.0, "epochs": 1, "batch": 8, "accum": 2, "lr": 0.0002, "weight_decay": 0.01, "warmup_steps": 10, "ema_decay": 0.9995, "seed": 42, "subset": 300, "skip_infer": true, "recapture_p": 0.0, "rc_min": 0.2, "rc_max": 0.6, "loto_types": "", "extra_data": "artifacts/dlc2021_train_index.csv", "extra_frac": 0.05, "extra_val": "artifacts/dlc2021_holdout_index.csv", "num_workers": 2, "out": "subs/dinov3_l512.csv"}
-[     4.8s] backbone=vit_large_patch16_dinov3.lvd1689m img=512 mean=(0.485, 0.456, 0.406) | DoRA layers=96 | trainable=6.52M
-[     8.2s] extra_data: +270 rows in train (125 fraud / 145 genuine; types=['DLC/cg', 'DLC/or'])
-[     8.2s] extra_val: +270 rows in val (separate metric)
-[     8.2s] train=570 | canary val=637 (digital 347 + recaptured 20 + extra 270)
-[     8.2s] extra sampler mass -> 0.0500 (~29 draws/epoch over 270 imgs)
-[   125.3s] metrics {"epoch": 0, "train_loss": 0.61143, "canary_freuid": 0.97354, "audet": 0.52165, "roc_auc": 0.47835, "ho_auc": 0.9167, "ho_gap": 0.0535, "ev_auc": 0.5927, "ev_genuine_p": 0.4487, "ev_fraud_p": 0.4833}
-[   127.1s] skip_infer set — done (training only)
