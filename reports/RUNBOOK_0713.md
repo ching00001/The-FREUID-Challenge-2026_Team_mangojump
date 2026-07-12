@@ -32,6 +32,13 @@
 7. **在 Kaggle 選定這兩份為 final picks**（舊的 0.00207 那兩份含 0.5 佔位、不能選）。
 8. commit REPRODUCE.md 的 checksum 更新（文件更新，freeze 允許）。
 
+## 合規註記（官方「Only update private rows after July 13」）
+
+最終 CSV 由單一 canonical run 產生（公開+私有一起），公開列相對 freeze 前
+提交的差異僅為跨行程浮點噪音（mean ~3e-4、翻轉 ≤0.04%，REPRODUCE.md 已文件
+化）——權重零改動，符合凍結規則的意旨；且這讓「提交檔 == Docker 輸出」的驗證
+一致性最大化。
+
 ## 時間軸（假設 7/13 上午釋出）
 
 | 時刻 | 事件 |

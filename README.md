@@ -29,6 +29,30 @@ docker/             offline inference image (see REPRODUCE.md)
 artifacts/system/   frozen inference artifacts (mirrored on Hugging Face)
 ```
 
+## Reproducing the final submissions (Docker)
+
+One offline image, one flag — full details, checksums, and the floating-point
+tolerance statement live in [REPRODUCE.md](REPRODUCE.md):
+
+```bash
+export HF_TOKEN=<token with access to gated facebook/dinov3-* repos>
+python docker/prepare_hf_cache.py                 # backbone checkpoints, ~8 GB
+docker build -f docker/Dockerfile -t freuid-mangojump .
+
+docker run --rm --network none --gpus all \
+  -v /path/to/flat/test/images:/data:ro -v "$(pwd)/out:/submissions" \
+  -e VARIANT=routed freuid-mangojump               # final pick 1
+# -e VARIANT=plain                                 # final pick 2 (router off)
+```
+
+Model weights: frozen in `artifacts/system/` and mirrored (sha256-verified) at
+[ching0206/freuid-2026-mangojump](https://huggingface.co/ching0206/freuid-2026-mangojump),
+revision `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`.
+
+**Hardware**: everything (training and inference) ran on a single NVIDIA RTX
+5060 Ti 16 GB, Windows 11, torch 2.11 nightly cu128. Inference ≈ 8 min / 1k
+images; member training 10–19 h per backbone.
+
 ## Data setup
 
 **Inference only (reproducing the final submissions): no data setup needed.**

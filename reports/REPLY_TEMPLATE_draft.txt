@@ -1,25 +1,22 @@
+---
+FREUID Challenge 2026 - Reproducibility Package
+---
+
 Team name: mangojump
-Kaggle usernames: lilwu, <同學帳號們，逗號分隔>
-Contact: <隊長姓名>, <email>
+Kaggle usernames: lilwu, <其他隊員帳號，逗號分隔>
+Final Kaggle submission: Pick 1 - "final pick 1 routed" <7/14 date-time as shown on Kaggle>
+                         (reproduce: docker run ... -e VARIANT=routed; expected ranking pick)
+                         Pick 2 - "final pick 2 plain" <7/14 date-time>
+                         (reproduce: docker run ... -e VARIANT=plain)
+                         [per organizers' guidance in the Q&A thread, both picks listed;
+                          full mapping incl. checksums: REPRODUCE.md in the repo]
 
-Final Kaggle submission(s):
-  Pick 1 (expected ranking pick) - FINAL_routed.csv, submitted <7/14 時間戳 as shown on Kaggle>
-    - reproduced via: docker run --network none --gpus all -v <test images>:/data:ro -v <out>:/submissions -e VARIANT=routed freuid-mangojump
-  Pick 2 (router-off ablation) - FINAL_routed_plain.csv, submitted <7/14 時間戳>
-    - reproduced via: docker run --network none --gpus all -v <test images>:/data:ro -v <out>:/submissions -e VARIANT=plain freuid-mangojump
-  (mapping with output checksums and floating-point tolerance: REPRODUCE.md in the repo)
-
-Repository URL: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump
+Repository (this should be public git repository): https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump
 Commit SHA: <40-char frozen commit>
-Technical report PDF: <URL — repo 內 PDF 的 raw 連結或 release asset>
-Weights: https://huggingface.co/ching0206/freuid-2026-mangojump @ 156f6e6ecf03e4a116ddf04a6a14be149a20fa9d
+Technical report (PDF): <URL>
 
-Compliance confirmation: We confirm the code at the above commit is
-OSI-licensed (MIT), all external data and pretrained models are publicly
-available, license-compatible, and cited in the report (DLC-2021 CC BY-SA 2.5;
-SIDTD CC BY-SA 4.0; DINOv3 / SigLIP-2 / DFN5B under their respective
-licenses), no model or training changes were made after the July 13 code
-freeze, and both final picks are produced by the same frozen weights via the
-documented inference-time flag.
+We confirm this repository at the stated commit reproduces our selected final
+submission and complies with the competition rules.
 
-Team captain: <姓名>, <UTC 日期>
+Signed (team captain): <隊長 Kaggle username>
+Date (UTC): <YYYY-MM-DD>
