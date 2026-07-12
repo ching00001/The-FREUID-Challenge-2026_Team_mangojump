@@ -1,4 +1,4 @@
-# The FREUID Challenge 2026 — team_mangojump
+# The FREUID Challenge 2026 — team mangojump
 
 Fraud detection on identity documents (IJCAI-ECAI 2026 challenge). Final system:
 feature-level fusion of DoRA-finetuned backbones (DINOv3-L/H+, SigLIP-2, DFN5B)
@@ -24,8 +24,63 @@ Pretrained backbones via `timm`: DINOv3 (Meta), SigLIP-2 (Google), DFN5B (Apple)
 src/                training, fusion, router, evaluation
 src/data/           dataset indexing + selective external-data fetchers
 experiments/        run configs + metrics (checkpoints excluded from git)
-reports/            working notes
+reports/            working notes, technical report, runbooks
+docker/             offline inference image (see REPRODUCE.md)
+artifacts/system/   frozen inference artifacts (mirrored on Hugging Face)
 ```
+
+## Reproducing the final submissions (Docker)
+
+One offline image, one flag — full details, checksums, and the floating-point
+tolerance statement live in [REPRODUCE.md](REPRODUCE.md):
+
+```bash
+export HF_TOKEN=<token with access to gated facebook/dinov3-* repos>
+python docker/prepare_hf_cache.py                 # backbone checkpoints, ~8 GB
+docker build -f docker/Dockerfile -t freuid-mangojump .
+
+docker run --rm --network none --gpus all \
+  -v /path/to/flat/test/images:/data:ro -v "$(pwd)/out:/submissions" \
+  -e VARIANT=routed freuid-mangojump               # final pick 1
+# -e VARIANT=plain                                 # final pick 2 (router off)
+```
+
+Model weights: frozen in `artifacts/system/` and mirrored (sha256-verified) at
+[ching0206/freuid-2026-mangojump](https://huggingface.co/ching0206/freuid-2026-mangojump),
+revision `156f6e6ecf03e4a116ddf04a6a14be149a20fa9d`.
+
+**Hardware**: everything (training and inference) ran on a single NVIDIA RTX
+5060 Ti 16 GB, Windows 11, torch 2.11 nightly cu128. Inference ≈ 8 min / 1k
+images; member training 10–19 h per backbone.
+
+## Data setup
+
+**Inference only (reproducing the final submissions): no data setup needed.**
+The Docker image / `src.predict_docker` takes any flat directory of images —
+see REPRODUCE.md.
+
+**Training reproduction** expects this layout under the repo root (or under
+`$FREUID_DATA` if you set that environment variable; see `src/data/paths.py`):
+
+```
+train_labels.csv                  competition CSV (id, label, is_digital, type)
+sample_submission.csv             competition CSV (defines the test id list)
+train/train/<id>.jpeg             training images (nested dir, as Kaggle unzips)
+public_test/public_test/<id>.jpeg public test images
+external/dlc2021/...              DLC-2021 frames  -> fetch: reports/dlc2021_setup.md,
+                                  then `python -m src.data.index_dlc2021`
+                                  (writes artifacts/dlc2021_index.csv)
+external/sidtd/clips_cropped/...  SIDTD frames     -> `python -m src.data.fetch_sidtd_clips`
+                                  (HTTP-Range selective fetch, ~700 MB;
+                                  writes artifacts/sidtd_clips_index.csv)
+```
+
+Competition data comes from the Kaggle competition page (not redistributed
+here). Derived index/split CSVs land in `artifacts/`:
+`python -m src.dlc_split` writes the doctype-disjoint DLC train/holdout split;
+`python -m src.data.build_extra_mix` writes
+`artifacts/extra_train_dlc_sidtd.csv` / `extra_val_dlc_sidtd.csv` — the exact
+external-mix files passed to training via `--extra_data` / `--extra_val`.
 
 ## License
 
