@@ -14,10 +14,9 @@ artifacts/*.npz
 artifacts/*.log
 artifacts/fusion_cache/
 artifacts/smoke_data/
-artifacts/system/*
-!artifacts/system/README.md
-!artifacts/system/config.json
 docker/hf_cache/
+# artifacts/system/ IS tracked (via Git LFS, see .gitattributes) — it mirrors
+# the frozen inference weights also hosted on Hugging Face.
 experiments/*/adapters.pt
 experiments/*/model.pt
 experiments/*/*.tmp
