@@ -42,8 +42,8 @@ Dual-hosted, identical bytes (sha256-verified):
 - **Hugging Face** — what `docker build` actually fetches, via
   `download_weights.py`, at the pinned revision:
   https://huggingface.co/ching0206/freuid-2026-mangojump
-  @ `a36f036aba49ede6890761c927fae8f1951922c9`.
-- **This repository**, via Git LFS: `artifacts/system/` — a convenience
+  @ `8c145f9e0da49db26007f174d587d7d06b0d3d90`.
+- **This repository**, via Git LFS: [`weights/`](weights/) — a convenience
   mirror for browsing or offline use; not read by the Docker build itself
   (excluded from the build context by `.dockerignore`).
 
@@ -54,10 +54,10 @@ Verify the two match:
 
 | Artifact | Path | Notes |
 |---|---|---|
-| DoRA adapters (7 members) | `artifacts/system/adapters_slim/*.pt` | EMA weights; ~55–115 MB each |
-| Fusion / capture / PAD heads | `artifacts/system/heads.pt` | linear heads, trained pre-freeze |
-| FGTS token indices | `artifacts/system/fisher_idx.npz` | frozen; never recomputed at inference |
-| kNN router reference + thresholds | `artifacts/system/knn_ref.npz`, `config.json` | distance floor 0.246778, capture threshold 0.5 |
+| DoRA adapters (6 members) | `weights/<member>.pt` | EMA weights; ~55–115 MB each |
+| Fusion / capture / PAD heads | `weights/heads.pt` | linear heads, trained pre-freeze |
+| FGTS token indices | `weights/fisher_idx.npz` | frozen; never recomputed at inference |
+| kNN router reference + thresholds | `weights/knn_ref.npz`, `weights/config.json` | distance floor 0.246778, capture threshold 0.5 |
 | Base backbones | HF cache baked into the image | DINOv3-L/H+ (Meta), SigLIP-2 SO400M (Apache-2.0), DFN5B (Apple ASCL) |
 
 Training code for every member is under `src/` with per-run configs in

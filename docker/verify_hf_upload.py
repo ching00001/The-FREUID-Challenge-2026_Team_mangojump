@@ -2,7 +2,7 @@
 
   python docker/verify_hf_upload.py <repo_id>          # e.g. ching0206/freuid-2026-mangojump
 
-Exit 0 = every local file in artifacts/system exists remotely with matching
+Exit 0 = every local file in weights/ exists remotely with matching
 size/sha256. No downloads needed (uses repo metadata only).
 """
 from __future__ import annotations
@@ -13,7 +13,7 @@ from pathlib import Path
 
 from huggingface_hub import HfApi
 
-SYS = Path(__file__).resolve().parents[1] / "artifacts" / "system"
+SYS = Path(__file__).resolve().parents[1] / "weights"
 
 
 def sha256(p: Path) -> str:

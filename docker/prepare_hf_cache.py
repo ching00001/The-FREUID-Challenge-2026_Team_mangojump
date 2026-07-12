@@ -1,8 +1,8 @@
 """Pre-download backbone checkpoints into docker/hf_cache (build-time, online).
 
 Reads the backbone names straight from the frozen adapters so the cache always
-matches artifacts/system/. All four backbones are ungated timm mirrors —
-no Hugging Face account or token is required (verified 2026-07-11).
+matches weights/. All four backbones are ungated timm mirrors — no Hugging
+Face account or token is required (verified 2026-07-11).
 
   python docker/prepare_hf_cache.py
 """
@@ -34,9 +34,15 @@ def local_hub_copy(name) -> bool:
     return True
 
 
+ADAPTER_MEMBERS = {"dino", "dino_hplus", "siglip512", "dfn5b",
+                   "dino_hplus_dlc", "dino_hplus_ds"}
+
+
 def main():
     seen = set()
-    for f in sorted((REPO / "artifacts" / "system" / "adapters_slim").glob("*.pt")):
+    for f in sorted((REPO / "weights").glob("*.pt")):
+        if f.stem not in ADAPTER_MEMBERS:      # skip heads.pt (not an adapter)
+            continue
         args = torch.load(f, map_location="cpu", weights_only=False)["args"]
         name = args["backbone"]
         if name in seen:

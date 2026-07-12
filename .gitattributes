@@ -1,4 +1,2 @@
-artifacts/system/fisher_idx.npz filter=lfs diff=lfs merge=lfs -text
-artifacts/system/adapters_slim/*.pt filter=lfs diff=lfs merge=lfs -text
-artifacts/system/knn_ref.npz filter=lfs diff=lfs merge=lfs -text
-artifacts/system/heads.pt filter=lfs diff=lfs merge=lfs -text
+weights/*.pt filter=lfs diff=lfs merge=lfs -text
+weights/*.npz filter=lfs diff=lfs merge=lfs -text

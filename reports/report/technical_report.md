@@ -152,9 +152,9 @@ docker run --network none --gpus all -v <images>:/data:ro \
 
 `VARIANT=routed` reproduces final pick 1 (full system); `VARIANT=plain`
 reproduces final pick 2 (router disabled — the pure fusion, an ablation).
-Everything the entrypoint touches is frozen in `artifacts/system/`: adapter
-deltas, three linear heads, FGTS token indices, the kNN reference matrix and
-both thresholds. Throughput ≈ 8 min / 1k images on our GPU. See REPRODUCE.md
+Everything the entrypoint touches is frozen in `weights/`: adapter deltas,
+three linear heads, FGTS token indices, the kNN reference matrix and both
+thresholds. Throughput ≈ 8 min / 1k images on our GPU. See REPRODUCE.md
 for the pick↔command↔checksum mapping and the cross-hardware floating-point
 tolerance statement (per-row mean |Δ| ≈ 3e-4, ≤ 0.04 % decision flips).
 
@@ -189,9 +189,9 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 
 * Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `<SHA, declared at the July 13 freeze>`.
 * Weights: https://huggingface.co/ching0206/freuid-2026-mangojump, revision
-  `a36f036aba49ede6890761c927fae8f1951922c9` (adapters + heads + router
-  artifacts, ~2.1 GB, per-file sha256-verified; base backbones fetched from
-  their original sources at image build).
+  `8c145f9e0da49db26007f174d587d7d06b0d3d90` (adapters + heads + router artifacts, ~2.1 GB,
+  per-file sha256-verified; base backbones fetched from their original
+  sources at image build).
 * Docker: build and run commands in REPRODUCE.md; canonical output checksums
   and tolerance statement included.
 * Hardware: single NVIDIA RTX 5060 Ti 16 GB, Windows 11, torch 2.11 nightly

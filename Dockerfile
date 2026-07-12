@@ -3,7 +3,7 @@
 FROM python:3.11-slim-bookworm
 
 ARG HF_REPO=ching0206/freuid-2026-mangojump
-ARG HF_REVISION=156f6e6ecf03e4a116ddf04a6a14be149a20fa9d
+ARG HF_REVISION=8c145f9e0da49db26007f174d587d7d06b0d3d90
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -22,7 +22,7 @@ COPY src /app/src
 COPY prepare_submission.py download_weights.py /app/
 COPY docker/prepare_hf_cache.py /app/docker/prepare_hf_cache.py
 RUN python download_weights.py --repo "$HF_REPO" \
-      --revision "$HF_REVISION" --out /app/artifacts/system && \
+      --revision "$HF_REVISION" --out /app/weights && \
     HF_HUB_OFFLINE=0 TRANSFORMERS_OFFLINE=0 \
       python docker/prepare_hf_cache.py
 

@@ -19,7 +19,7 @@ this repo holds only the weight artifacts consumed by `src/predict_docker.py`.
 
 | File | What it is |
 |---|---|
-| `adapters_slim/<member>.pt` | DoRA adapter deltas (rank 16, α 32) + EMA copies per member; base backbone weights are NOT included |
+| `<member>.pt` (`dino`, `dino_hplus`, `siglip512`, `dfn5b`, `dino_hplus_dlc`, `dino_hplus_ds`) | DoRA adapter deltas (rank 16, α 32) + EMA copies per member; base backbone weights are NOT included |
 | `heads.pt` | fusion head, capture head, PAD head (linear, LayerNorm→Dropout→Linear) |
 | `fisher_idx.npz` | frozen FGTS top-64 token indices for DINOv3 members |
 | `knn_ref.npz` | block-normalized digital-train reference matrix (fp32) for the kNN router |

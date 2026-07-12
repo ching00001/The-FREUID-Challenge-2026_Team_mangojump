@@ -26,7 +26,7 @@ src/data/           dataset indexing + selective external-data fetchers
 experiments/        run configs + metrics (checkpoints excluded from git)
 reports/            working notes, technical report, runbooks
 docker/             offline inference image (see REPRODUCE.md)
-artifacts/system/   frozen inference artifacts (mirrored on Hugging Face)
+weights/            frozen inference weights (mirrored on Hugging Face)
 ```
 
 ## Reproducing the final submissions (Docker)
@@ -45,10 +45,10 @@ docker run --rm --network none \
 # add --gpus all if the host has nvidia-container-toolkit (CPU fallback otherwise)
 ```
 
-Model weights: frozen in `artifacts/system/` (Git LFS, this repo) and
+Model weights: frozen in [`weights/`](weights/) (Git LFS, this repo) and
 [ching0206/freuid-2026-mangojump](https://huggingface.co/ching0206/freuid-2026-mangojump)
 (what the Docker build actually fetches), revision
-`a36f036aba49ede6890761c927fae8f1951922c9`, sha256-verified identical.
+`8c145f9e0da49db26007f174d587d7d06b0d3d90`, sha256-verified identical.
 
 **Hardware**: everything (training and inference) ran on a single NVIDIA RTX
 5060 Ti 16 GB, Windows 11, torch 2.11 nightly cu128. Inference ≈ 8 min / 1k

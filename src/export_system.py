@@ -1,14 +1,14 @@
-"""Freeze the final inference system into artifacts/system/ (pre-code-freeze).
+"""Freeze the final inference system into weights/ (pre-code-freeze).
 
 Everything the Docker entrypoint needs, serialized once so that post-freeze
 inference involves NO training of any kind:
 
-  config.json           members, thresholds, variant map
-  heads.pt              champ / capture / PAD linear heads (state_dicts)
-  fisher_idx.npz        frozen FGTS token indices per DINOv3 member
-  knn_ref.npz           block-normalized digital-train reference (fp16) for kNN
-  adapters_slim/<m>.pt  DoRA adapters w/o the frozen base weights the ".m"
-                        substring bug used to drag in (4.9GB -> ~120MB each)
+  config.json    members, thresholds, variant map
+  heads.pt       champ / capture / PAD linear heads (state_dicts)
+  fisher_idx.npz frozen FGTS token indices per DINOv3 member
+  knn_ref.npz    block-normalized digital-train reference (fp16) for kNN
+  <m>.pt         DoRA adapters w/o the frozen base weights the ".m"
+                 substring bug used to drag in (4.9GB -> ~120MB each)
 
 Head-training RNG mirrors src/capture_mid.py exactly (manual_seed(0); champ ->
 cap -> pad_half -> pad_full) so the frozen heads match that lineage; the FINAL
@@ -35,7 +35,7 @@ from .router_head import blocknorm, knn_dist
 BASE = ["dino", "dino_hplus", "siglip512", "dfn5b", "dino_hplus_dlc"]
 PADM = BASE + ["dino_hplus_ds"]
 PAD_SPLITS = ["dlc2021", "sidtdclips"]
-SYS = REPO_ROOT / "artifacts" / "system"
+SYS = REPO_ROOT / "weights"
 
 ADAPTER_KEY = re.compile(r"(\.A|\.B|\.m)$|(^|\.)head\.")
 
@@ -114,10 +114,9 @@ def main():
     np.savez(SYS / "fisher_idx.npz", **{k: v for k, v in idxs.items()})
 
     # ---- slim adapters -------------------------------------------------------
-    (SYS / "adapters_slim").mkdir(exist_ok=True)
     for m in set(PADM):
         sl = slim_adapters(MEMBERS[m]["run"])
-        torch.save(sl, SYS / "adapters_slim" / f"{m}.pt")
+        torch.save(sl, SYS / f"{m}.pt")
         n = sum(v.numel() for v in sl.get("ema_adapters", sl["adapters"]).values())
         print(f"  adapters slimmed: {m} params={n/1e6:.1f}M")
 
@@ -143,7 +142,7 @@ def main():
         print(f"[verify {name}] vs {ref}: max|diff|={d.max():.2e} "
               f"flips(>0.5)={int(((p > .5) != (r > .5)).sum())}")
         fgts.write_sub(te_ids, p, f"subs/final_{name}.csv")
-    print("DONE — artifacts/system frozen; upload subs/final_plain.csv + "
+    print("DONE — weights/ frozen; upload subs/final_plain.csv + "
           "subs/final_routed.csv as the definitive pair")
 
 

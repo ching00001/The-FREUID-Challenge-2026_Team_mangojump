@@ -6,7 +6,7 @@ drifts near the k=64 cutoff (bf16 forward), so the fusion_cache features
 deterministic 84-row divergence between the cache path and the Docker path.
 
 Fix: re-extract train/test/eval-split features for every fgts member using
-artifacts/system/fisher_idx.npz, overwriting fusion_cache. After this,
+weights/fisher_idx.npz, overwriting fusion_cache. After this,
 export_system (rerun) trains heads on features IDENTICAL to what
 predict_docker computes -> the two paths agree by construction.
 
@@ -31,7 +31,7 @@ SPLITS = None  # filled in main
 def main():
     device = "cuda"
     torch.backends.cudnn.benchmark = True
-    idxs = dict(np.load(REPO_ROOT / "artifacts/system/fisher_idx.npz"))
+    idxs = dict(np.load(REPO_ROOT / "weights/fisher_idx.npz"))
 
     tr_df, _ = make_splits(42, 0)
     tr_df = tr_df[tr_df["is_digital"]].reset_index(drop=True)

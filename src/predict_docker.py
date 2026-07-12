@@ -2,7 +2,7 @@
 
 Contract: flat image dir mounted at /data (ids = filenames w/o extension),
 output /submissions/submission.csv with columns id,label. No network, no
-training — everything comes from artifacts/system/ (see export_system.py).
+training — everything comes from weights/ (see export_system.py).
 
   VARIANT=routed  champ head + (capture AND dist>floor) -> dual-axis PAD  (A)
   VARIANT=plain   champ head only                                         (B)
@@ -28,7 +28,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms as T
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SYS = REPO_ROOT / "artifacts" / "system"
+SYS = REPO_ROOT / "weights"
 EXTS = {".jpeg", ".jpg", ".png", ".webp", ".bmp", ".tif", ".tiff"}
 
 
@@ -40,8 +40,7 @@ class _A:                                       # attr-dict for saved args
 def load_member(m, spec, device):
     """Backbone + slim DoRA adapters + preprocessing, fully offline."""
     from .train_DINOV3L_512 import build_model
-    ck = torch.load(SYS / "adapters_slim" / f"{m}.pt", map_location="cpu",
-                    weights_only=False)
+    ck = torch.load(SYS / f"{m}.pt", map_location="cpu", weights_only=False)
     model, _n, img, mean, std = build_model(_A(ck["args"]))
     model.load_state_dict(ck.get("ema_adapters", ck["adapters"]), strict=False)
     model.eval().to(device)
