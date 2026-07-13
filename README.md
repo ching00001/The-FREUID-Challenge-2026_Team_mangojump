@@ -7,7 +7,7 @@ clean fusion head to a presentation-attack (PAD) head trained on real
 recaptures (DLC-2021) and content-forged physical documents (SIDTD clips).
 
 - Public LB best: `fusion_C1p_dlc5` = 0.00198; private-hedged: `fusion_hybrid_routed`.
-- Reproducibility package (Docker, report, commands): see `REPRODUCE.md` (WIP).
+- Reproducibility package (Docker, report, commands): see `REPRODUCE.md`.
 
 ## External data (fetched by scripts under `src/data/`, not redistributed here)
 
@@ -26,7 +26,7 @@ src/data/           dataset indexing + selective external-data fetchers
 experiments/        run configs + metrics (checkpoints excluded from git)
 reports/            working notes, technical report, runbooks
 docker/             offline inference image (see REPRODUCE.md)
-weights/            frozen inference weights (mirrored on Hugging Face)
+weights/            frozen inference weights (Git LFS; baked into the image)
 ```
 
 ## Reproducing the final submissions (Docker)
@@ -45,10 +45,14 @@ docker run --rm --network none \
 # add --gpus all if the host has nvidia-container-toolkit (CPU fallback otherwise)
 ```
 
-Model weights: frozen in [`weights/`](weights/) (Git LFS, this repo) and
-[ching0206/freuid-2026-mangojump](https://huggingface.co/ching0206/freuid-2026-mangojump)
-(what the Docker build actually fetches), revision
-`8c145f9e0da49db26007f174d587d7d06b0d3d90`, sha256-verified identical.
+`plain` uses the five frozen base adapters; `routed` uses those same adapters
+plus the frozen `dino_hplus_ds` PAD adapter. Both commands write
+`/submissions/submission.csv` and reproduce the two selected picks from the
+same image, commit, and weight revision.
+
+Model weights: frozen in [`weights/`](weights/) via Git LFS and copied into
+the image at build time. Public base backbones are cached at build time; no
+weight download occurs at runtime.
 
 **Hardware**: everything (training and inference) ran on a single NVIDIA RTX
 5060 Ti 16 GB, Windows 11, torch 2.11 nightly cu128. Inference ≈ 8 min / 1k

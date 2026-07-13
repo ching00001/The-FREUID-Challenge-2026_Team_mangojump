@@ -5,15 +5,17 @@ in an inference-time flag (confirmed acceptable by the organizers).
 
 ## Final pick mapping
 
-| Kaggle submission | Command | Public LB | Output checksum* |
+| Kaggle submission | Frozen weight combination | Command | Output SHA-256* |
 |---|---|---|---|
-| `final_routed.csv` (Pick 1, expected ranking pick) | `docker run --network none -v <images>:/data:ro -v <out>:/submissions -e VARIANT=routed freuid-mangojump` | 0.00207 | `<md5, filled at freeze>` |
-| `final_plain.csv` (Pick 2, router-off ablation) | same with `-e VARIANT=plain` | 0.00207 | `<md5, filled at freeze>` |
+| Pick 1: `final_routed.csv` | 5 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `<fill after canonical run>` |
+| Pick 2: `final_plain.csv` | 5 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `<fill after canonical run>` |
 
 Add `--gpus all` if the host has `nvidia-container-toolkit` configured (large
 speedup; the image auto-detects CUDA vs. CPU — see Hardware/Throughput below).
 
-\* Checksums are from our canonical run (RTX 5060 Ti 16GB, torch
+\* Record the checksum of each selected Kaggle CSV after the canonical run
+with `sha256sum <out>/submission.csv`. In PowerShell use
+`Get-FileHash <out>\submission.csv -Algorithm SHA256`. The canonical hardware was RTX 5060 Ti 16GB, torch
 2.11.0.dev20251223+cu128). GPU inference is not bit-portable across
 hardware/kernel versions; expected reproduction tolerance on other GPUs:
 per-row mean |Δ| ≈ 3e-4, decision flips ≤ 0.04 % of rows, leaderboard impact
@@ -33,22 +35,16 @@ row id = filename without extension. Output: `/submissions/submission.csv`
 with columns `id,label` (fraud score in [0,1]).
 
 Throughput: ≈ 8 min / 1k images on an RTX 5060 Ti (16 GB); the 134,997-image
-private set takes ≈ 19 h. `VARIANT=plain` skips one backbone (~15 % faster).
+private set takes ≈ 19 h. `VARIANT=plain` skips the sixth PAD adapter
+(~15 % faster). Run each pick into a separate host output directory so each
+has its own `submission.csv` checksum.
 
 ## Frozen weights
 
-Dual-hosted, identical bytes (sha256-verified):
-
-- **Hugging Face** — what `docker build` actually fetches, via
-  `download_weights.py`, at the pinned revision:
-  https://huggingface.co/ching0206/freuid-2026-mangojump
-  @ `8c145f9e0da49db26007f174d587d7d06b0d3d90`.
-- **This repository**, via Git LFS: [`weights/`](weights/) — a convenience
-  mirror for browsing or offline use; not read by the Docker build itself
-  (excluded from the build context by `.dockerignore`).
-
-Verify the two match:
-`python docker/verify_hf_upload.py ching0206/freuid-2026-mangojump`.
+[`weights/`](weights/) is versioned in this repository with Git LFS and copied
+into `/app/weights` during `docker build`. The image performs no external
+weight download; its only online build-time step is caching the public base
+backbones used by `timm`.
 
 ## What is frozen where
 
