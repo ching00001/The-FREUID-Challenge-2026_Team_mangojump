@@ -2,7 +2,8 @@
 !Dockerfile
 !requirements.txt
 !prepare_submission.py
-!download_weights.py
+!weights/
+!weights/**
 !src/
 !src/**
 !docker/

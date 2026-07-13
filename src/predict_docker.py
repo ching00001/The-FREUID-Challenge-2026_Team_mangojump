@@ -30,6 +30,11 @@ from torchvision import transforms as T
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SYS = REPO_ROOT / "weights"
 EXTS = {".jpeg", ".jpg", ".png", ".webp", ".bmp", ".tif", ".tiff"}
+DEFAULT_DATA_DIR = os.environ.get("FREUID_DATA_DIR", "/data")
+DEFAULT_OUTPUT_PATH = os.environ.get(
+    "FREUID_SUBMISSION_PATH",
+    str(Path(os.environ.get("FREUID_OUTPUT_DIR", "/submissions")) / "submission.csv"),
+)
 
 
 class _A:                                       # attr-dict for saved args
@@ -132,8 +137,8 @@ def knn_dist(Q, R, device, k, bs=1024):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default="/data")
-    ap.add_argument("--out", default="/submissions/submission.csv")
+    ap.add_argument("--data", default=DEFAULT_DATA_DIR)
+    ap.add_argument("--out", default=DEFAULT_OUTPUT_PATH)
     ap.add_argument("--variant", default=os.environ.get("VARIANT", "routed"),
                     choices=["routed", "plain"])
     ap.add_argument("--emit_both", action="store_true",
@@ -213,8 +218,10 @@ def main():
     for v in emit:
         path = out if v == args.variant else \
             out.with_name(out.stem + "_plain" + out.suffix)
-        pd.DataFrame({"id": ids, "label": np.clip(outputs[v], 0, 1)}
-                     ).to_csv(path, index=False)
+        labels = np.clip(outputs[v], 0, 1)
+        if not np.isfinite(labels).all():
+            raise SystemExit(f"non-finite labels produced for variant={v}")
+        pd.DataFrame({"id": ids, "label": labels}).to_csv(path, index=False)
         print(f"wrote {path} rows={len(ids)} variant={v}")
 
 
