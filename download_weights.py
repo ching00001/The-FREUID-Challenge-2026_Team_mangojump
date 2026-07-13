@@ -10,7 +10,7 @@ from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 DEFAULT_REPO = "ching0206/freuid-2026-mangojump"
-DEFAULT_REVISION = "156f6e6ecf03e4a116ddf04a6a14be149a20fa9d"
+DEFAULT_REVISION = "8c145f9e0da49db26007f174d587d7d06b0d3d90"
 SKIP = {".gitattributes", "README.md"}
 
 

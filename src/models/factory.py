@@ -27,7 +27,7 @@ class FraudNet(nn.Module):
         # size (img_h/img_w must be multiples of the patch size). CNNs (ConvNeXt)
         # don't take img_size, so only pass it for transformer backbones.
         if any(k in cfg.backbone for k in
-               ("vit", "eva", "dinov2", "deit", "beit", "swin")):
+               ("vit", "eva", "dinov2", "deit", "beit", "swin", "maxvit")):
             kwargs["img_size"] = (cfg.img_h, cfg.img_w)
         self.backbone = timm.create_model(cfg.backbone, **kwargs)
         if getattr(cfg, "lora_r", 0) > 0:
