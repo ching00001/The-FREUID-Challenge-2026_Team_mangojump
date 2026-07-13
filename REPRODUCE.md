@@ -7,8 +7,8 @@ in an inference-time flag (confirmed acceptable by the organizers).
 
 | Kaggle submission | Frozen weight combination | Command | Output SHA-256* |
 |---|---|---|---|
-| Pick 1: `final_routed.csv` | 5 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `<fill after canonical run>` |
-| Pick 2: `final_plain.csv` | 5 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `<fill after canonical run>` |
+| Pick 1: `final_routed.csv` | 5 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `d20e1bc65848f880580cebeb33a6426bc380ae728ce3dc25fb32ba386893386b` |
+| Pick 2: `final_plain.csv` | 5 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `5e63417d13873a79a0c697b250fb9e7be257948d4ce446ecdc766d692e7aaeb3` |
 
 Add `--gpus all` if the host has `nvidia-container-toolkit` configured (large
 speedup; the image auto-detects CUDA vs. CPU — see Hardware/Throughput below).
