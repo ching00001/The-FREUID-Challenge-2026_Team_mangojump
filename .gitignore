@@ -2,6 +2,7 @@
 train/
 train_sample/
 public_test/
+private_test/
 test/
 *.csv
 !sample_submission_schema.csv

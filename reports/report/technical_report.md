@@ -187,7 +187,7 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 
 ## 6. Reproducibility
 
-* Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `<SHA, declared at the July 13 freeze>`.
+* Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `744bb3dcdfde3d0671fe1311d0a894cf103771f1` (weights and inference code unchanged from the July 13 freeze; this and later commits are documentation-only, per the organizers' clarification that only weight/training changes are restricted post-freeze).
 * Weights: https://huggingface.co/ching0206/freuid-2026-mangojump, revision
   `8c145f9e0da49db26007f174d587d7d06b0d3d90` (adapters + heads + router artifacts, ~2.1 GB,
   per-file sha256-verified; base backbones fetched from their original
