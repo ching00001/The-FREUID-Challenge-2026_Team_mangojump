@@ -210,7 +210,7 @@ public comparisons are unaffected by the disclosed metric-leak issue.
 
 ## 6. Reproducibility
 
-* Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `<SHA, filled after the DFN5B-removal commit lands>`. Per the organizers' clarification, only backbone/training-code changes are restricted post-freeze; the fusion head re-serialization in this commit uses only pre-freeze cached train-split features (see the licensing-remediation note in §2.1 and the Kaggle reproducibility thread for organizer approval).
+* Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `20c049830fa1273174b5468b4cb1d10e8832e0d1` (the DFN5B-removal commit). Per the organizers' clarification, only backbone/training-code changes are restricted post-freeze; the fusion head re-serialization in this commit uses only pre-freeze cached train-split features (see the licensing-remediation note in §2.1 and the Kaggle reproducibility thread for organizer approval).
 * Weights: [`weights/`](../../weights/) is versioned in this repository via Git LFS and copied
   into the Docker image at build time (no external weight download at build or run time).
 * Docker: build and run commands in REPRODUCE.md; canonical output checksums
