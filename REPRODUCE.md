@@ -20,8 +20,8 @@ validated pre-freeze (`fusion_dlc4_nodfn5b.csv`, 2026-07-08, public LB
 
 | Kaggle submission | Frozen weight combination | Command | Output SHA-256* |
 |---|---|---|---|
-| Pick 1: `final_routed.csv` | 4 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `<fill after canonical run>` |
-| Pick 2: `final_plain.csv` | 4 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `<fill after canonical run>` |
+| Pick 1: `final_routed.csv` | 4 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `ffa7b7847f3d60274cacd73f4423582475d9ad1fdb425db09d1c637bd1b746ba` |
+| Pick 2: `final_plain.csv` | 4 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `80def01b7582e1a439e881cf90227b6d7a50a3973ee1ecf5cd37411602785bc9` |
 
 Add `--gpus all` if the host has `nvidia-container-toolkit` configured (large
 speedup; the image auto-detects CUDA vs. CPU — see Hardware/Throughput below).
