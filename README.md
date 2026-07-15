@@ -1,7 +1,7 @@
 # The FREUID Challenge 2026 — team mangojump
 
 Fraud detection on identity documents (IJCAI-ECAI 2026 challenge). Final system:
-feature-level fusion of DoRA-finetuned backbones (DINOv3-L/H+, SigLIP-2, DFN5B)
+feature-level fusion of DoRA-finetuned backbones (DINOv3-L/H+, SigLIP-2)
 with an OOD **router** that switches far-out-of-distribution captures from the
 clean fusion head to a presentation-attack (PAD) head trained on real
 recaptures (DLC-2021) and content-forged physical documents (SIDTD clips).
@@ -16,7 +16,11 @@ recaptures (DLC-2021) and content-forged physical documents (SIDTD clips).
 | [DLC-2021](https://zenodo.org/record/DLC2021) | CC BY-SA 2.5 | real original/reprint captures (training mix + arbitration) |
 | [SIDTD](https://doi.org/10.34810/data1815) | CC BY-SA 4.0 (CORA DOI record) | content-forged printed documents, video frames (training mix + arbitration) |
 
-Pretrained backbones via `timm`: DINOv3 (Meta), SigLIP-2 (Google), DFN5B (Apple).
+Pretrained backbones via `timm`: DINOv3 (Meta, DINOv3 license), SigLIP-2 (Google,
+Apache-2.0) — both permit commercial use. An earlier version of this system also
+used DFN5B (Apple), but that backbone is licensed under Apple AMLR
+(non-commercial research only) and was removed post-freeze with explicit
+organizer approval; see `REPRODUCE.md` for the remediation details.
 
 ## Layout
 

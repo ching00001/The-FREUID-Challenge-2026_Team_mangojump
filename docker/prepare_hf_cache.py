@@ -34,7 +34,7 @@ def local_hub_copy(name) -> bool:
     return True
 
 
-ADAPTER_MEMBERS = {"dino", "dino_hplus", "siglip512", "dfn5b",
+ADAPTER_MEMBERS = {"dino", "dino_hplus", "siglip512",
                    "dino_hplus_dlc", "dino_hplus_ds"}
 
 

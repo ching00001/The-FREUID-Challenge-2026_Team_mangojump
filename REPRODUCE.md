@@ -3,12 +3,25 @@
 One frozen system, one Docker image, two selected final picks that differ only
 in an inference-time flag (confirmed acceptable by the organizers).
 
+## Post-freeze licensing remediation (DFN5B removed)
+
+Our original frozen system (as of the July 13 freeze) included a DFN5B
+(Apple) member. We subsequently found DFN5B's `apple-amlr` license is
+non-commercial-only, incompatible with Article 10. With explicit organizer
+approval (Kaggle reproducibility thread, 2026-07-15), we re-serialized the
+fusion/capture/PAD heads for the remaining 5 members, using only the
+pre-freeze feature cache of the training split (no backbone retraining, no
+private-test involvement) — reproducing a combination we had already
+validated pre-freeze (`fusion_dlc4_nodfn5b.csv`, 2026-07-08, public LB
+0.00198, identical to the DFN5B-inclusive score). Post-remediation public LB:
+0.00208. `weights/dfn5b.pt` has been deleted from this repository.
+
 ## Final pick mapping
 
 | Kaggle submission | Frozen weight combination | Command | Output SHA-256* |
 |---|---|---|---|
-| Pick 1: `final_routed.csv` | 5 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `d20e1bc65848f880580cebeb33a6426bc380ae728ce3dc25fb32ba386893386b` |
-| Pick 2: `final_plain.csv` | 5 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `5e63417d13873a79a0c697b250fb9e7be257948d4ce446ecdc766d692e7aaeb3` |
+| Pick 1: `final_routed.csv` | 4 base adapters + `dino_hplus_ds` PAD adapter | `docker run --network none -v <images>:/data:ro -v <out-routed>:/submissions -e VARIANT=routed freuid-mangojump` | `<fill after canonical run>` |
+| Pick 2: `final_plain.csv` | 4 base adapters only | `docker run --network none -v <images>:/data:ro -v <out-plain>:/submissions -e VARIANT=plain freuid-mangojump` | `<fill after canonical run>` |
 
 Add `--gpus all` if the host has `nvidia-container-toolkit` configured (large
 speedup; the image auto-detects CUDA vs. CPU — see Hardware/Throughput below).
@@ -35,7 +48,7 @@ row id = filename without extension. Output: `/submissions/submission.csv`
 with columns `id,label` (fraud score in [0,1]).
 
 Throughput: ≈ 8 min / 1k images on an RTX 5060 Ti (16 GB); the 134,997-image
-private set takes ≈ 19 h. `VARIANT=plain` skips the sixth PAD adapter
+private set takes ≈ 16 h. `VARIANT=plain` skips the fifth PAD adapter
 (~15 % faster). Run each pick into a separate host output directory so each
 has its own `submission.csv` checksum.
 
@@ -50,11 +63,11 @@ backbones used by `timm`.
 
 | Artifact | Path | Notes |
 |---|---|---|
-| DoRA adapters (6 members) | `weights/<member>.pt` | EMA weights; ~55–115 MB each |
-| Fusion / capture / PAD heads | `weights/heads.pt` | linear heads, trained pre-freeze |
+| DoRA adapters (5 members) | `weights/<member>.pt` | EMA weights; ~55–115 MB each |
+| Fusion / capture / PAD heads | `weights/heads.pt` | linear heads; re-serialized post-freeze from pre-freeze cached features only (see remediation note above) |
 | FGTS token indices | `weights/fisher_idx.npz` | frozen; never recomputed at inference |
-| kNN router reference + thresholds | `weights/knn_ref.npz`, `weights/config.json` | distance floor 0.246778, capture threshold 0.5 |
-| Base backbones | HF cache baked into the image | DINOv3-L/H+ (Meta), SigLIP-2 SO400M (Apache-2.0), DFN5B (Apple ASCL) |
+| kNN router reference + thresholds | `weights/knn_ref.npz`, `weights/config.json` | distance floor 0.274026, capture threshold 0.5 |
+| Base backbones | HF cache baked into the image | DINOv3-L/H+ (Meta, DINOv3 license), SigLIP-2 SO400M (Apache-2.0) |
 
 Training code for every member is under `src/` with per-run configs in
 `experiments/<run_id>/config.json`; external data (DLC-2021, CC BY-SA 2.5;

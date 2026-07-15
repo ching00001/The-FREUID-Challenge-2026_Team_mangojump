@@ -19,17 +19,24 @@ this repo holds only the weight artifacts consumed by `src/predict_docker.py`.
 
 | File | What it is |
 |---|---|
-| `<member>.pt` (`dino`, `dino_hplus`, `siglip512`, `dfn5b`, `dino_hplus_dlc`, `dino_hplus_ds`) | DoRA adapter deltas (rank 16, α 32) + EMA copies per member; base backbone weights are NOT included |
+| `<member>.pt` (`dino`, `dino_hplus`, `siglip512`, `dino_hplus_dlc`, `dino_hplus_ds`) | DoRA adapter deltas (rank 16, α 32) + EMA copies per member; base backbone weights are NOT included |
 | `heads.pt` | fusion head, capture head, PAD head (linear, LayerNorm→Dropout→Linear) |
 | `fisher_idx.npz` | frozen FGTS top-64 token indices for DINOv3 members |
 | `knn_ref.npz` | block-normalized digital-train reference matrix (fp32) for the kNN router |
-| `config.json` | member specs, routing thresholds (capture 0.5, distance floor 0.246778), variant map |
+| `config.json` | member specs, routing thresholds (capture 0.5, distance floor 0.274026), variant map |
 
 ## Base models (fetch from original sources; only deltas are hosted here)
 
 - DINOv3 ViT-L/16 & ViT-H+/16 (`timm/vit_{large,huge_plus}_patch16_dinov3.lvd1689m`) — Meta AI, DINOv3 license (timm mirrors, ungated)
 - SigLIP-2 SO400M/16 @512 (`timm/vit_so400m_patch16_siglip_512.v2_webli`) — Apache-2.0
-- DFN5B CLIP ViT-H/14 @378 (`timm/vit_huge_patch14_clip_378.dfn5b`) — Apple ASCL
+
+DFN5B (`timm/vit_huge_patch14_clip_378.dfn5b`, Apple AMLR — non-commercial
+research only) was removed post-freeze with organizer approval (license
+incompatible with Article 10's commercial-use grant). The fusion head was
+re-serialized from the pre-freeze feature cache of the remaining 5 members
+only (train-split features, computed before the private set existed; no
+backbone retraining, no private-data involvement). See the reproducibility
+thread on Kaggle for the organizers' explicit sign-off.
 
 ## Training data of the adapters
 

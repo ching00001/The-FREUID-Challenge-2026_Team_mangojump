@@ -39,9 +39,21 @@ h-flip. Members and their roles:
 | `dino` | DINOv3 ViT-L/16 | — | fusion base |
 | `dino_hplus` | DINOv3 ViT-H+/16 | — | fusion base |
 | `siglip512` | SigLIP-2 SO400M/16 | — | fusion base |
-| `dfn5b` | DFN5B CLIP ViT-H/14 @378 | — | fusion base |
 | `dino_hplus_dlc` | DINOv3 ViT-H+/16 | DLC-2021 (5 %) | fusion base + capture axis |
 | `dino_hplus_ds` | DINOv3 ViT-H+/16 | DLC+SIDTD (8 %) | PAD features only |
+
+A sixth member, DFN5B CLIP ViT-H/14 @378 (Apple), was part of the system as
+submitted at the July 13 freeze. We subsequently found its `apple-amlr`
+license is non-commercial-only and, with explicit organizer approval, removed
+it post-freeze by re-serializing the fusion/capture/PAD heads from the
+pre-freeze feature cache of the remaining 5 members only (train-split
+features, computed before the private set existed — no backbone retraining,
+no private-test involvement). This reproduced a combination already
+validated pre-freeze (2026-07-08, public LB 0.00198, identical to the
+DFN5B-inclusive score); post-remediation public LB is 0.00208. All results
+below reflect the DFN5B-inclusive system as it stood at freeze, since that is
+the development history; the shipped, prize-eligible system is the
+5-member/4-base variant described in this note and in REPRODUCE.md.
 
 For DINOv3 members we pool the top-64 patch tokens ranked by a Fisher
 criterion computed on train (FGTS); VL members use global patch pooling. The
@@ -56,10 +68,12 @@ toxic: the dose that fixes the external axis destroys in-domain recaptures
 
 ### 2.2 Fusion
 
-Member features are concatenated (6,016-d) and a linear head (LayerNorm →
+Member features are concatenated (4,736-d in the shipped 4-base-member system;
+6,016-d with DFN5B, as trained pre-freeze) and a linear head (LayerNorm →
 Dropout → Linear) is trained on the digital training set. Feature-level fusion
 beat every weight/rank blend we tried and every single model: our best single
-model scores 0.00297 public, the 5-member fusion 0.00198.
+model scores 0.00297 public, the shipped fusion 0.00208 (0.00198 with DFN5B
+included, pre-remediation).
 
 ### 2.3 The private axis and the router
 
@@ -137,9 +151,11 @@ sharpness for robustness — only viable as fusion/PAD members).
 SIDTD frames were fetched selectively over HTTP-Range from the official host
 (datasets.cvc.uab.es) — 791 frames out of a 26.6 GB archive. Neither dataset
 is redistributed in our repository or Docker image; fetch scripts are under
-`src/data/`. Pretrained backbones: DINOv3 (Meta AI, DINOv3 license), SigLIP-2
-(Google, Apache-2.0), DFN5B (Apple, ASCL) — obtained via `timm`; we
-redistribute only DoRA adapter deltas.
+`src/data/`. Pretrained backbones in the shipped system: DINOv3 (Meta AI,
+DINOv3 license), SigLIP-2 (Google, Apache-2.0) — both permit commercial use,
+obtained via `timm`; we redistribute only DoRA adapter deltas. (An earlier,
+pre-freeze version also used DFN5B (Apple), whose `apple-amlr` license is
+non-commercial-only; see §2.1.)
 
 ## 4. Inference procedure
 
@@ -171,7 +187,8 @@ Public leaderboard progression (all runs single-GPU local):
 | 4-member fusion | 0.00237 |
 | + DLC-mixed member (5-member fusion) | 0.00198 |
 | + OOD router (far-OOD variant) | 0.00227→0.00208 across iterations |
-| **Final frozen pair (`routed` / `plain`)** | **0.00207 / 0.00207** |
+| Final frozen pair as submitted at freeze (`routed` / `plain`, DFN5B-inclusive) | 0.00207 / 0.00207 |
+| **Shipped, prize-eligible pair (DFN5B removed post-freeze, org.-approved)** | **`routed`/`plain` public 0.00208; see REPRODUCE.md for the canonical private+public checksums** |
 
 Private-axis arbitration (unseen-doctype holdouts, never trained on):
 
@@ -182,22 +199,26 @@ Private-axis arbitration (unseen-doctype holdouts, never trained on):
 | known-type real recaptures (n=20) | 0.93 | 0.91 |
 | clean digital reference (n=2,000) | 1.00 | 1.00 |
 
+(Arbitration numbers above are from the DFN5B-inclusive system as it stood at
+freeze; we have not independently re-run this table on the post-remediation
+5-member system. Given the public-LB shift from the removal was small
+(0.00198→0.00208), we expect these to be directionally representative, but
+they are not re-verified.)
+
 We kept hidden-row predictions constant (0.5) across all submissions, so our
 public comparisons are unaffected by the disclosed metric-leak issue.
 
 ## 6. Reproducibility
 
-* Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `744bb3dcdfde3d0671fe1311d0a894cf103771f1` (weights and inference code unchanged from the July 13 freeze; this and later commits are documentation-only, per the organizers' clarification that only weight/training changes are restricted post-freeze).
-* Weights: https://huggingface.co/ching0206/freuid-2026-mangojump, revision
-  `8c145f9e0da49db26007f174d587d7d06b0d3d90` (adapters + heads + router artifacts, ~2.1 GB,
-  per-file sha256-verified; base backbones fetched from their original
-  sources at image build).
+* Repository: https://github.com/ching00001/The-FREUID-Challenge-2026_Team_mangojump — frozen commit `<SHA, filled after the DFN5B-removal commit lands>`. Per the organizers' clarification, only backbone/training-code changes are restricted post-freeze; the fusion head re-serialization in this commit uses only pre-freeze cached train-split features (see the licensing-remediation note in §2.1 and the Kaggle reproducibility thread for organizer approval).
+* Weights: [`weights/`](../../weights/) is versioned in this repository via Git LFS and copied
+  into the Docker image at build time (no external weight download at build or run time).
 * Docker: build and run commands in REPRODUCE.md; canonical output checksums
   and tolerance statement included.
 * Hardware: single NVIDIA RTX 5060 Ti 16 GB, Windows 11, torch 2.11 nightly
   cu128. Member training 10–19 h each; head/router training is seconds on
   cached features; full-system inference on the 134,997-image private set
-  ≈ 19 h.
+  ≈ 16 h (5 members, post-remediation).
 * Training commands and hyperparameters for every member are given in full in
   §2.1; raw per-run logs are not shipped in the repository (kept lean for the
   frozen submission) but every run is reproducible from `src/train_DINOV3L_512.py`

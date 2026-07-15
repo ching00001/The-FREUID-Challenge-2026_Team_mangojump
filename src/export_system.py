@@ -32,7 +32,7 @@ from .fusion import MEMBERS, CACHE
 from .hybrid_routed import load_eval, load_train_test
 from .router_head import blocknorm, knn_dist
 
-BASE = ["dino", "dino_hplus", "siglip512", "dfn5b", "dino_hplus_dlc"]
+BASE = ["dino", "dino_hplus", "siglip512", "dino_hplus_dlc"]
 PADM = BASE + ["dino_hplus_ds"]
 PAD_SPLITS = ["dlc2021", "sidtdclips"]
 SYS = REPO_ROOT / "weights"

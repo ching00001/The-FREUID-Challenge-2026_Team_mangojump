@@ -3,38 +3,23 @@
     "dino",
     "dino_hplus",
     "siglip512",
-    "dfn5b",
     "dino_hplus_dlc"
   ],
   "pad_members": [
     "dino",
     "dino_hplus",
     "siglip512",
-    "dfn5b",
     "dino_hplus_dlc",
     "dino_hplus_ds"
   ],
   "member_specs": {
-    "dino_hplus": {
-      "run": "20260630_032659_dinov3_hplus_512",
-      "kind": "fgts",
-      "k": 64
-    },
-    "dino_hplus_dlc": {
-      "run": "20260702_064234_dinov3_hplus_dlcmix",
-      "kind": "fgts",
-      "k": 64
-    },
-    "siglip512": {
-      "run": "20260612_134841_siglip512_dora_full",
-      "kind": "global"
-    },
-    "dfn5b": {
-      "run": "20260625_163727_dfn5b_h378",
-      "kind": "global"
-    },
     "dino": {
       "run": "20260616_134434_dinov3_l512",
+      "kind": "fgts",
+      "k": 64
+    },
+    "dino_hplus": {
+      "run": "20260630_032659_dinov3_hplus_512",
       "kind": "fgts",
       "k": 64
     },
@@ -42,11 +27,20 @@
       "run": "20260703_053144_dinov3_hplus_dlcsidtd",
       "kind": "fgts",
       "k": 64
+    },
+    "siglip512": {
+      "run": "20260612_134841_siglip512_dora_full",
+      "kind": "global"
+    },
+    "dino_hplus_dlc": {
+      "run": "20260702_064234_dinov3_hplus_dlcmix",
+      "kind": "fgts",
+      "k": 64
     }
   },
   "thresholds": {
     "cap": 0.5,
-    "dist_floor": 0.2467775195837021
+    "dist_floor": 0.27402645349502563
   },
   "knn_k": 10,
   "variants": {
